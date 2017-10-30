@@ -1,0 +1,65 @@
+/**
+ * Base styles for the Welcome Message container
+ * These will render the default design in the event the user
+ * doesn't add any custom overrides.
+ */
+
+.welcome-avatar {
+  margin: 0 auto;
+}
+
+.welcome-header {
+  text-align: center;
+
+  h2, h3 {
+    color: #233140;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    line-height: 1.5;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+}
+
+.welcome-coupon--code {
+  border-right: 0 !important;
+
+  span {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.welcome-coupon--button {
+  svg {
+    left: -1px;
+    position: relative;
+    top: 1px;
+  }
+}
+
+.welcome-footer {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 490px) {
+  .welcome-container {
+    box-sizing: border-box;
+    border-radius: 0!important;
+    border-width: 0!important;
+    height: 100%;
+  }
+
+  .welcome-footer {
+    margin-bottom: 30px;
+  }
+}

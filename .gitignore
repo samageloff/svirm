@@ -1,0 +1,11 @@
+logs/*
+dist
+/lib
+.env
+.DS_Store
+.happypack
+node_modules
+bower_components
+npm-debug.log
+coverage
+.idea
