@@ -1,17 +1,15 @@
 var path = require('path')
 
-module.exports = function(config, files, coverageReport) {
+module.exports = function (config, files, coverageReport, singleRun) {
   var karmaConf = {
     basePath: '../',
-    frameworks: ['mocha', 'chai', 'sinon'],
+    frameworks: ['mocha', 'chai', 'sinon', 'chai-immutable'],
     files: [
       '../node_modules/babel-polyfill/dist/polyfill.js'
     ],
 
-    preprocessors: {},
-
     coverageReporter: {
-      type : 'text',
+      type: 'text',
       includeAllSources: true
     },
 
@@ -22,76 +20,76 @@ module.exports = function(config, files, coverageReport) {
       lines: 75
     },
 
-    webpack: { //kind of a copy of your webpack config
+    webpack: {
       entry: ['babel-polyfill'],
       resolve: {
-        extensions: ['', '.js', '.md', '.txt', '.scss', '.css', '.json'],
+        extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
         alias: {
-          'common': path.resolve(__dirname, '../../src/common'),
-          'ambassador-common': path.resolve(__dirname, '../../node_modules/@ambassador/common/lib'),
-          'welcome': path.resolve(__dirname, '../../src/welcome')
+          'common': path.resolve(__dirname, '../src/')
         }
       },
       module: {
-        preLoaders: [
+        rules: [
           {
             test: /\.js$/,
-            loader: 'isparta-loader',
-            exclude: [/node_modules/, /test/]
-          }
-        ],
-        loaders: [
+            enforce: 'pre',
+            exclude: [
+              /node_modules/,
+              /test/
+            ],
+            use: [
+              {
+                loader: 'isparta-loader'
+              }
+            ]
+          },
           {
             test: /\.js?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-          },
-          {
-            test: /\.json?$/,
-            loader: 'json-loader'
-          },
-          {
-            test: /\.(css|scss)$/,
-            loaders: [
-              'style-loader?sourceMap',
-              'css-loader?modules&localIdentName=[local]!postcss-loader',
-              'sass-loader?sourceMap'
-            ],
             exclude: [
-              /node_modules\/react-ions\/lib\/styles\/global/
+              /node_modules/
+            ],
+            use: [
+              {
+                loader: 'babel-loader'
+              }
             ]
           },
           {
             test: /\.(css|scss)$/,
-            loaders: [
-              'style-loader?sourceMap',
-              'css-loader',
-              'postcss-loader',
-              'sass-loader?sourceMap'
-            ],
-            include: [
-              /node_modules\/react-ions\/lib\/styles\/global/
+            use: [
+              {
+                loader: 'style-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localIdentName: '[local]'
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true
+                }
+              }
             ]
-          },
-          {
-            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'url-loader?limit=10000&minetype=application/font-woff'
-          },
-          {
-            test: /\.(jpe?g|gif|png|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'file-loader'
           }
         ]
       },
       externals: {
-        'react/lib/ExecutionEnvironment': 'true',
-        'react/lib/ReactContext': 'true',
-        'react/addons': 'true'
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+        'react/addons': true,
+        'cheerio': 'window'
       }
     },
 
     webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+      noInfo: true // please don't spam the console when running in karma!
     },
 
     plugins: [
@@ -100,6 +98,7 @@ module.exports = function(config, files, coverageReport) {
       'karma-mocha-reporter',
       'karma-sinon',
       'karma-chai',
+      'karma-chai-immutable',
       'karma-chrome-launcher'
     ],
 
@@ -119,12 +118,17 @@ module.exports = function(config, files, coverageReport) {
 
     logLevel: config.LOG_INFO,
 
-    browsers: ['Chrome'],
+    browserConsoleLogOptions: {
+      terminal: true,
+      level: ''
+    },
 
-    singleRun: true
+    browsers: ['Chrome']
   }
 
-  if(coverageReport) {
+  karmaConf.singleRun = singleRun
+
+  if (coverageReport) {
     karmaConf.plugins.push('karma-coverage')
     karmaConf.plugins.push('karma-threshold-reporter')
     karmaConf.reporters.push('coverage')

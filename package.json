@@ -1,47 +1,46 @@
 {
-  "name": "@ambassador/ambassador-modules",
-  "version": "1.1.4",
-  "description": "Ambassador modules for Snippet.",
+  "name": "Boilerplate",
+  "version": "1.0.0",
+  "description": "React 16, Redux, Webpack 3, CSS Modules + Styled Modules",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GetAmbassador/ambassador-modules.git"
+    "url": "git+https://github.com/samageloff/boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/GetAmbassador/ambassador-modules/issues"
+    "url": "https://github.com/samageloff/boilerplate/issues"
   },
   "license": "UNLICENSED",
   "engines": {
     "node": "4.4.3",
     "npm": "3.10.10"
   },
-  "author": "Ambassador Engineering",
-  "homepage": "http://getambassador.com",
+  "author": "Sam Ageloff",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
-    "start": "node ./server",
+    "start:dev": "webpack-dev-server",
     "test": "export NODE_ENV=test && node_modules/karma/bin/karma start test/config/karma.local.conf.js",
-    "build": "npm run clean && export NODE_ENV=production && webpack --config ./webpack.prod.config.js --profile --colors",
+    "build": "npm run clean && export NODE_ENV=production && webpack --config ./webpack.config.js --profile --colors",
     "clean": "rimraf dist lib",
     "postinstall": "if [ \"$MODULES_POSTINSTALL\" = true ]; then npm run build:server; else echo 0; fi"
   },
   "dependencies": {
-    "@ambassador/common": "0.0.5",
-    "camelcase-keys": "4.0.0",
-    "clipboard": "^1.5.16",
+    "axios": "^0.11.0",
+    "deepmerge": "^2.0.0",
     "immutable": "^3.8.1",
-    "inline-style-prefixer": "^2.0.5",
     "prop-types": "~15.5.10",
-    "react-click-outside": "^2.3.1",
+    "react-hot-loader": "^3.1.2",
     "react-immutable-proptypes": "^2.1.0",
-    "react-ions": "1.1.4",
+    "react-ions": "2.0.20",
     "react-redux": "^5.0.5",
+    "react-transition-group": "2.2.1",
     "redux": "~3.6.0",
     "redux-thunk": "^2.1.0",
-    "svg4everybody": "^2.1.4"
+    "reselect": "^3.0.1",
+    "styled-components": "2.1.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.0.0-beta.31",
     "babel-cli": "^6.4.0",
     "babel-eslint": "^7.1.1",
     "babel-jscs": "^2.0.5",
@@ -51,11 +50,11 @@
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
     "babel-polyfill": "^6.9.1",
     "babel-preset-airbnb": "^1.0.1",
-    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.1.0",
-    "camelcase": "4.0.0",
     "chai": "^3.5.0",
+    "chai-immutable": "^1.6.0",
     "clean-webpack-plugin": "^0.1.8",
     "css-loader": "^0.19.0",
     "dotenv": "^2.0.0",
@@ -63,16 +62,15 @@
     "enzyme": "~2.8.2",
     "eslint": "^3.16.1",
     "eslint-plugin-react": "^7.3.0",
-    "express": "^4.13.3",
-    "extract-text-webpack-plugin": "^0.8.2",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.8.5",
-    "happypack": "^2.1.1",
     "html-webpack-plugin": "^1.6.1",
     "isparta-loader": "^2.0.0",
     "jsdom": "^6.5.1",
     "json-loader": "^0.5.4",
     "karma": "^1.3.0",
     "karma-chai": "^0.1.0",
+    "karma-chai-immutable": "^1.0.3",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.1.1",
@@ -80,15 +78,15 @@
     "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-threshold-reporter": "^0.1.15",
-    "karma-webpack": "^1.8.0",
+    "karma-webpack": "^2.0.2",
     "map-obj": "^2.0.0",
     "mocha": "^3.0.2",
     "mocha-jsdom": "^1.1.0",
     "node-sass": "~3.4.2",
     "postcss-loader": "^0.6.0",
-    "react": "15.6.0",
-    "react-addons-test-utils": "15.5.1",
-    "react-dom": "15.6.0",
+    "react": "16.0.0",
+    "react-addons-test-utils": "15.6.2",
+    "react-dom": "16.0.0",
     "rimraf": "^2.4.3",
     "sass-loader": "^3.2.0",
     "sinon": "^1.17.5",
@@ -97,12 +95,7 @@
     "style-loader": "^0.12.4",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.2",
-    "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.2.0"
-  },
-  "peerDependencies": {
-    "react": ">= 15.1.0 < 15.7.0",
-    "react-dom": ">= 15.1.0 < 15.7.0"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   }
 }
