@@ -5,7 +5,13 @@ import {
 } from '../actions/project'
 
 const defaultProjectState = Immutable.fromJS({
-  data: {}
+  data: {
+    selectors: true,
+    otherStuff: {
+      yes: true,
+      no: false
+    }
+  }
 })
 
 const project = (state = defaultProjectState, action) => {
