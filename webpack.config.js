@@ -23,7 +23,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
     alias: {
-      'common': path.resolve(__dirname, 'src/')
+      'src': path.resolve(__dirname, 'src/')
     }  
   },
   module: {

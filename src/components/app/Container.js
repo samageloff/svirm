@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
 import { map } from 'react-immutable-proptypes'
-import { project } from 'common/selectors/project'
-import style from 'common/styles/base'
+import { project } from 'src/selectors/project'
+import StyledH1 from 'src/components/common/StyledH1'
+import style from 'src/styles/base'
 
-export class AppContainer extends Component {
+export class Container extends Component {
   constructor(props) {
     super(props)
   }
@@ -21,7 +22,7 @@ export class AppContainer extends Component {
   render = () => {
     return (
       <div>
-        <h1>This is Boilerplate. 🔥</h1>
+        <StyledH1>This is Boilerplate. 🔥</StyledH1>
         <h2>Application state</h2>
         <code>{JSON.stringify(this.props.project.toJS())}</code>
       </div>
@@ -35,4 +36,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(AppContainer)
+export default connect(mapStateToProps)(Container)

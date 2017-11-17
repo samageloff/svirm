@@ -1,10 +1,20 @@
 {
-  "presets": ["react", "es2015"],
-  "plugins": ["react-hot-loader/babel", "transform-object-rest-spread", "transform-class-properties", "transform-export-extensions"],
-  "env": {
-    "test": {
-      "presets": ["react", "es2015"],
-      "plugins": ["transform-object-rest-spread", "transform-class-properties", "transform-export-extensions"]
-    }
-  }
+  "presets": [
+    "react",
+    "es2017",
+    [
+      "env", {
+        "modules": false,
+        "test": {
+          "presets": ["react", "es2017"]
+        }
+      }
+    ]  
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "transform-export-extensions"
+  ]
 }
