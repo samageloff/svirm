@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <h1
+    className="sc-bdVaJa ibTDPh"
+  >
+    This is Boilerplate. 🔥
+  </h1>,
+  <h2
+    className="sc-bwzfXH bGgvvP"
+  >
+    Application state
+  </h2>,
+  <div
+    className="input-component"
+  >
+    <div
+      className="input-container"
+      style={null}
+    >
+      <input
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={undefined}
+        onFocus={[Function]}
+        onKeyDown={undefined}
+        onKeyPress={undefined}
+        onKeyUp={undefined}
+        placeholder={undefined}
+        style={Object {}}
+        value=""
+      />
+    </div>
+  </div>,
+  <code>
+    {}
+  </code>,
+]
+`;
