@@ -14,4 +14,3 @@ jobs:
       - run:
           name: Running tests
           command: npm test
-gita 
