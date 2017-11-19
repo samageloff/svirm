@@ -1,12 +1,11 @@
 {
   "presets": [
-    "react",
-    "es2017",
+    "react", "es2017",
     [
       "env", {
-        "modules": false,
         "test": {
-          "presets": ["react", "es2017"]
+          "presets": ["react", "es2017"],
+          "plugins": ["transform-es2015-modules-commonjs"]
         }
       }
     ]  

@@ -4,7 +4,7 @@ import Immutable from 'immutable'
 import { map } from 'react-immutable-proptypes'
 import { project } from 'src/selectors/project'
 import StyledH1 from 'src/components/common/StyledH1'
-import style from 'src/styles/base'
+import style from 'src/styles/base.scss'
 
 export class Container extends Component {
   constructor(props) {
