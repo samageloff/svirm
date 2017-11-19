@@ -2,16 +2,16 @@ import styled from 'styled-components'
 import { map } from 'react-immutable-proptypes'
 import { Map } from 'immutable'
 
-export const StyledH1 = styled.h1`
+export const StyldH2 = styled.h2`
   ${props => props.css.toJS()}
 `
 
-StyledH1.defaultProps = {
+StyldH2.defaultProps = {
   css: Map()
 }
 
-StyledH1.propTypes = {
+StyldH2.propTypes = {
   css: map
 }
 
-export default StyledH1
+export default StyldH2

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Immutable from 'immutable'
+import Immutable, { Map } from 'immutable'
 import { map } from 'react-immutable-proptypes'
 import { project } from 'src/selectors/project'
-import StyledH1 from 'src/components/common/StyledH1'
+import { StyldH1, StyldH2 } from 'src/components/common/styled'
+import Input from 'react-ions/lib/input'
 import style from 'src/styles/base.scss'
 
 export class Container extends Component {
@@ -20,13 +21,12 @@ export class Container extends Component {
   }
 
   render = () => {
-    return (
-      <div>
-        <StyledH1>This is Boilerplate. 🔥</StyledH1>
-        <h2>Application state</h2>
-        <code>{JSON.stringify(this.props.project.toJS())}</code>
-      </div>
-    )
+    return [
+      <StyldH1 key='h1'>This is Boilerplate. 🔥</StyldH1>,
+      <StyldH2 key='h2'>Application state</StyldH2>,
+      <Input key='input' />,
+      <code key='code'>{JSON.stringify(this.props.project.toJS())}</code>
+    ]
   }
 }
 

@@ -1,5 +1,16 @@
-import Container from 'src/components/app/Container.js'
+import React from 'react'
+import Immutable from 'immutable'
+import { Container } from 'src/components/app/Container.js'
+import renderer from 'react-test-renderer'
 
-test('adds 1 + 2 to equal 3', () => {
-    console.log('cool')
+it('renders correctly', () => {
+  const props = {
+    project: Immutable.fromJS({})
+  }
+
+  const tree = renderer.create(
+    <Container project={props.project} />
+  ).toJSON()
+
+  expect(tree).toMatchSnapshot()
 })
