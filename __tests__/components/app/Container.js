@@ -5,11 +5,15 @@ import renderer from 'react-test-renderer'
 
 it('renders correctly', () => {
   const props = {
+    actions: {
+      startTimer: () => {},
+      stopTimer: () => {}
+    },
     project: Immutable.fromJS({})
   }
 
   const tree = renderer.create(
-    <Container project={props.project} />
+    <Container project={props.project} actions={props.actions} />
   ).toJSON()
 
   expect(tree).toMatchSnapshot()
