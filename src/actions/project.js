@@ -15,43 +15,68 @@ export const updateProject = (project) => {
   }
 }
 
-export const TIMER_START = 'TIMER_START'
-export const TIMER_TICK = 'TIMER_TICK'
-export const TIMER_STOP = 'TIMER_STOP'
+export const START_TIMER = 'START_TIMER'
+export const TICK = 'TICK'
+export const STOP_TIMER = 'STOP_TIMER'
+export const RESET_TIMER = 'RESET_TIMER'
 
 let timer = null
 
-const _timerStart = () => {
-  console.log('start')
+const _startTimer = data => {
   return {
-    type: TIMER_START
+    type: START_TIMER,
+    data
   }
 }
 
 export const _tick = () => {
-  console.log('tick')
   return {
-    type: TIMER_TICK
+    type: TICK
   }
 }
 
-const _timerStop = () => {
-  console.log('stop')
+const _stopTimer = data => {
   return {
-    type: TIMER_STOP
+    type: STOP_TIMER,
+    data
   }
 }
 
-export const startTimer = () => (dispatch) => {
-  clearInterval(timer)
-
-  timer = setInterval(() => dispatch(_tick()), 1000)
-
-  dispatch(_timerStart())
-  dispatch(_tick())
+const _timerReset = () => {
+  return {
+    type: RESET_TIMER
+  }
 }
 
-export const stopTimer = () => (dispatch) => {
+export const startTimer = () => (dispatch, getState) => {
   clearInterval(timer)
-  dispatch(_timerStop())  
+
+  timer = setInterval(() => dispatch(tick()), 1000)
+
+  const status = !getState().project.getIn(['data', 'timer', 'start'])
+
+  dispatch(_startTimer(status))
+}
+
+export const tick = () => (dispatch, getState) => {
+  const currentTick = getState().project.getIn(['data', 'timer', 'currentTick'])
+  
+  if (currentTick === 0) {
+    return dispatch(stopTimer())
+  }
+
+  return dispatch(_tick())  
+}
+
+export const stopTimer = () => (dispatch, getState) => {
+  clearInterval(timer)
+
+  const status = !getState().project.getIn(['data', 'timer', 'stop'])  
+
+  dispatch(_stopTimer(status))
+}
+
+export const resetTimer = () => (dispatch) => {
+  dispatch(stopTimer())
+  dispatch(_timerReset())
 }

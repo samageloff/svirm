@@ -2,22 +2,19 @@ import Immutable from 'immutable'
 
 import {
   UPDATE_PROJECT,
-  TIMER_START,
-  TIMER_TICK,
-  TIMER_STOP
+  START_TIMER,
+  TICK,
+  STOP_TIMER,
+  RESET_TIMER
 } from '../actions/project'
 
 const defaultProjectState = Immutable.fromJS({
   data: {
-    selectors: true,
-    otherStuff: {
-      yes: true,
-      no: false
-    },
     timer: {
       start: false,
       stop: true,
-      tick: null
+      defaultTick: 5,
+      currentTick: 5
     }
   }
 })
@@ -28,17 +25,23 @@ const project = (state = defaultProjectState, action) => {
       return state.withMutations(map => {
         map.set('data', Immutable.fromJS(action.project))
       })
-    case TIMER_START:
+    case START_TIMER:
       return state.withMutations(map => {
         map.setIn(['data', 'timer', 'start'], Immutable.fromJS(action.project))
       })
-    case TIMER_TICK:
+    case TICK:
       return state.withMutations(map => {
-        map.setIn(['data', 'timer', 'tick'], Immutable.fromJS(action.project))
+        const decrementTick = map.getIn(['data', 'timer', 'currentTick']) - 1
+
+        map.setIn(['data', 'timer', 'currentTick'], decrementTick)
       })
-    case TIMER_STOP:
+    case STOP_TIMER:
       return state.withMutations(map => {
         map.setIn(['data', 'timer', 'stop'], Immutable.fromJS(action.project))
+      })
+    case RESET_TIMER:
+      return state.withMutations(map => {
+        map.setIn(['data', 'timer', 'currentTick'], map.getIn(['data', 'timer', 'defaultTick']))
       })
     default:
       return state
