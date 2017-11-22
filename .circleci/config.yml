@@ -7,7 +7,10 @@ jobs:
       - checkout
       - run:
           name: Greeting
-          command: echo Hello, world.
+          command: echo Howdy folks.
       - run:
           name: Print the Current Time
           command: date
+      - run:
+          name: Running tests
+          command: npm test
