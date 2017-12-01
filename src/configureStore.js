@@ -3,15 +3,16 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers/root'
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 export default function configureStore(initialState) {
   const store = createStore(
     rootReducer, 
     initialState, 
-    compose(
+    composeEnhancers(
       applyMiddleware(
         thunkMiddleware
-      ),
-      config.NODE_ENV === 'development' && window.devToolsExtension ? window.devToolsExtension() : f => f
+      )
     )
   )
 
