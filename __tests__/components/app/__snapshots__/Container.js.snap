@@ -68,6 +68,23 @@ exports[`renders correctly 1`] = `
       Stop
     </em>
   </button>
+  <button
+    className="btn"
+    disabled={undefined}
+    onClick={undefined}
+    onMouseDown={undefined}
+    onMouseEnter={undefined}
+    onMouseLeave={undefined}
+    onMouseOut={undefined}
+    onMouseOver={undefined}
+    onMouseUp={undefined}
+    style={undefined}
+    type="button"
+  >
+    <em>
+      Reset
+    </em>
+  </button>
   <div>
     <code>
       {}
