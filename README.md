@@ -1,24 +1,23 @@
 Boilerplate
 =================
-** React 16, Redux, Reselect, StyledComponents, CSS Modules, Webpack 3
+** Webpack 3, React 16, Redux, Reselect, StyledComponents, CSS Modules, Jest
 
 Getting the app running
 -----------------------
 
 ``` 
 npm install
-npm start
+npm run start:dev
 ```
 
 Testing
 -------
-
 Run all tests:
 ```
 npm test
 ```
 
-Run a single test file:
+Update test snapshots:
 ```
-npm test PATH_TO_FILE
+npm test -- --updateSnapshot
 ```
