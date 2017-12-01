@@ -1,7 +1,7 @@
 {
   "name": "Boilerplate",
   "version": "1.0.0",
-  "description": "React 16, Redux, Webpack 3, CSS Modules + Styled Modules",
+  "description": "React 16, Redux, Webpack 3, CSS Modules, Styled Modules",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samageloff/boilerplate.git"
