@@ -29,7 +29,7 @@ const _timerStart = () => (dispatch) => {
   timer = setInterval(() => dispatch(tick()), 10)
 }
 
-const _timerStop = () => {
+const timerStop = () => {
   clearInterval(timer)
 }
 
@@ -38,19 +38,21 @@ export const timerToggle = () => (dispatch, getState) => {
 
   dispatch(_timerToggle(status))
 
-  status ? dispatch(_timerStart()) : _timerStop()
+  status ? dispatch(_timerStart()) : timerStop()
 }
 
 export const tick = () => (dispatch, getState) => {
   const currentTick = getState().project.getIn(['data', 'timer', 'currentTick'])
   
   if (currentTick === 0) {
-    return dispatch(stopTimer())
+    timerStop()
+    return dispatch(timerReset())
   }
 
-  return dispatch(_tick())  
+  return dispatch(_tick())
 }
 
 export const timerReset = () => (dispatch) => {
   dispatch(_timerReset())
+  dispatch(timerToggle())
 }

@@ -5,7 +5,7 @@ import Immutable, { Map } from 'immutable'
 import { bool, number } from 'prop-types'
 import { map } from 'react-immutable-proptypes'
 import { currentTick, timerStatus } from 'src/selectors/project'
-import { timerToggle, timerReset } from 'src/actions/project'
+import { timerToggle } from 'src/actions/project'
 import { StyldH1, StyldH2 } from 'src/components/common/styled'
 import Input from 'react-ions/lib/input'
 import style from 'src/styles/base.scss'
@@ -18,10 +18,6 @@ export class Container extends Component {
   static propTypes = {
     currentTick: number,
     timerStatus: bool
-  }
-
-  componentDidMount = () => {
-    window.timerReset = this.props.actions.timerReset()
   }
 
   shouldComponentUpdate = (nextProps) => {
@@ -53,8 +49,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     actions: bindActionCreators({
-      timerToggle,
-      timerReset
+      timerToggle
     }, dispatch)
   }
 }

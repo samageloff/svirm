@@ -10,8 +10,8 @@ const defaultProjectState = Immutable.fromJS({
   data: {
     timer: {
       status: false,
-      defaultTick: 5000,
-      currentTick: 5000
+      defaultTick: 100,
+      currentTick: 100
     }
   }
 })
