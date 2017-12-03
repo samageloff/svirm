@@ -1,33 +1,8 @@
-import { log } from "util";
-
-export const UPDATE_PROJECT = 'UPDATE_PROJECT'
-
-const _updateProject = (project) => {
-  return {
-    type: UPDATE_PROJECT,
-    project
-  }
-}
-
-export const updateProject = (project) => {
-  return dispatch => {
-    dispatch(_updateProject(project))
-  }
-}
-
-export const START_TIMER = 'START_TIMER'
 export const TICK = 'TICK'
-export const STOP_TIMER = 'STOP_TIMER'
-export const RESET_TIMER = 'RESET_TIMER'
+export const TIMER_RESET = 'TIMER_RESET'
+export const TIMER_TOGGLE = 'TIMER_TOGGLE'
 
 let timer = null
-
-const _startTimer = data => {
-  return {
-    type: START_TIMER,
-    data
-  }
-}
 
 export const _tick = () => {
   return {
@@ -35,27 +10,35 @@ export const _tick = () => {
   }
 }
 
-const _stopTimer = data => {
+const _timerToggle = data => {
   return {
-    type: STOP_TIMER,
+    type: TIMER_TOGGLE,
     data
   }
 }
 
 const _timerReset = () => {
   return {
-    type: RESET_TIMER
+    type: TIMER_RESET
   }
 }
 
-export const startTimer = () => (dispatch, getState) => {
+const _timerStart = () => (dispatch) => {
   clearInterval(timer)
 
-  timer = setInterval(() => dispatch(tick()), 1000)
+  timer = setInterval(() => dispatch(tick()), 10)
+}
 
-  const status = !getState().project.getIn(['data', 'timer', 'start'])
+const _timerStop = () => {
+  clearInterval(timer)
+}
 
-  dispatch(_startTimer(status))
+export const timerToggle = () => (dispatch, getState) => {
+  const status = !getState().project.getIn(['data', 'timer', 'status'])  
+
+  dispatch(_timerToggle(status))
+
+  status ? dispatch(_timerStart()) : _timerStop()
 }
 
 export const tick = () => (dispatch, getState) => {
@@ -68,15 +51,6 @@ export const tick = () => (dispatch, getState) => {
   return dispatch(_tick())  
 }
 
-export const stopTimer = () => (dispatch, getState) => {
-  clearInterval(timer)
-
-  const status = !getState().project.getIn(['data', 'timer', 'stop'])  
-
-  dispatch(_stopTimer(status))
-}
-
-export const resetTimer = () => (dispatch) => {
-  dispatch(stopTimer())
+export const timerReset = () => (dispatch) => {
   dispatch(_timerReset())
 }
