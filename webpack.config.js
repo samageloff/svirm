@@ -24,7 +24,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
     alias: {
       'src': path.resolve(__dirname, 'src/')
-    }  
+    }
   },
   module: {
     rules: [{
