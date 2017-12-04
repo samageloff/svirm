@@ -26,7 +26,7 @@ const _timerReset = () => {
 const _timerStart = () => dispatch => {
   clearInterval(timer)
 
-  timer = setInterval(() => dispatch(tick()), 10)
+  timer = setInterval(() => dispatch(tick()), 100)
 }
 
 const timerStop = () => {

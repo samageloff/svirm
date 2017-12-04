@@ -26,17 +26,14 @@ export class Clicker extends Component {
   }
 
   styles = () => Immutable.fromJS({
-    background: 'purple',
+    background: 'rgb(255, 110, 110)',
     position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+    bottom: '0',
+    height: this.props.timerStatus ? `${this.props.currentTick}%` : '50px',
+    width: this.props.timerStatus ? '100%' : '50px',
     opacity: this.props.timerStatus ? 1 : 0,
-    transition: 'all .35s ease-in-out',
-    zIndex: 1,
-    height: this.props.timerStatus ? '100%' : '50px',
-    width: this.props.timerStatus ? '100%' : '50px'
+    transition: 'all .15s ease-out',
+    zIndex: 1
   })
 
   render = () => (
