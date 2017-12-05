@@ -27,9 +27,7 @@ export class Clicker extends Component {
     return false
   }
 
-  calculatePercentage = () => {
-    return (this.props.currentTick / this.props.defaultTick) * 100
-  }
+  calculatePercentage = () => (this.props.currentTick / this.props.defaultTick) * 100
 
   styles = () => Immutable.fromJS({
     background: 'rgb(255, 110, 110)',

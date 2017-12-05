@@ -3,13 +3,14 @@ import { keyframes } from 'styled-components'
 import Transition from 'react-transition-group/Transition'
 
 const burstIn = keyframes`
-  from {
-    opacity: 0;
+  0% {
+    borderRadius: 50%,
+    boxShadow: '0 0 30px 20px rgb(255, 110, 110)'
   }
-
-  to {
-    opacity: 1;
-    visibility: visible;
+  20% {
+    borderRadius: 0%;
+    boxShadow: '0',
+    width: 100%
   }
 `
 

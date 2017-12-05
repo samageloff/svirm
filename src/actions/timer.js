@@ -26,7 +26,7 @@ const _timerReset = () => {
 const _timerStart = () => (dispatch) => {
   clearInterval(timer)
 
-  timer = setInterval(() => dispatch(tick()), 100)
+  timer = setInterval(() => dispatch(tick()), 1000)
 }
 
 const timerStop = () => {
@@ -34,7 +34,7 @@ const timerStop = () => {
 }
 
 export const timerToggle = () => (dispatch, getState) => {
-  const status = !getState().timer.getIn(['data', 'timer', 'status'])  
+  const status = !getState().timer.getIn(['data', 'timer', 'status'])
 
   dispatch(_timerToggle(status))
 
