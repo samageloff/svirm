@@ -4,19 +4,19 @@ import {
   TICK,
   TIMER_RESET,
   TIMER_TOGGLE
-} from '../actions/project'
+} from '../actions/timer'
 
-const defaultProjectState = Immutable.fromJS({
+const defaultTimerState = Immutable.fromJS({
   data: {
     timer: {
       status: false,
-      defaultTick: 100,
-      currentTick: 100
+      defaultTick: 60,
+      currentTick: 60
     }
   }
 })
 
-const project = (state = defaultProjectState, action) => {
+const timer = (state = defaultTimerState, action) => {
   switch (action.type) {
     case TICK:
       return state.withMutations(map => {
@@ -37,4 +37,4 @@ const project = (state = defaultProjectState, action) => {
   }
 }
 
-export default project
+export default timer

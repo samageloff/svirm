@@ -1,0 +1,19 @@
+.clicker {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+
+  button {
+    background:rgb(255, 110, 110);
+    border-radius: 50%;
+    bottom: 5%;
+    border: none;
+    height: 50px;
+    position: absolute;
+    width: 50px;  
+    z-index: 2;
+  }
+}

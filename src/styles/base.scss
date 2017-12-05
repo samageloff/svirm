@@ -34,28 +34,3 @@ body {
     width: 100%;
   }
 }
-
-.ticker {
-  align-items: center;
-  color: rgb(255, 255, 255);
-  display: flex;
-  font-size: 7rem;
-  flex-direction: column;
-  font-weight: bold;
-  justify-content: center;
-  width: 100%;
-}
-
-.clicker {
-  bottom: 5%;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-
-  button {
-    background:rgb(255, 110, 110);
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;  
-  }
-}

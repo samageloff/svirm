@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import project from './project'
+import timer from './timer'
 
 const rootReducer = combineReducers({
-  project
+  timer
 })
 
 export default rootReducer
