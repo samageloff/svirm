@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import Immutable from 'immutable'
 import { bindActionCreators } from 'redux'
 import { bool, number } from 'prop-types'
-import { currentTick, timerStatus } from 'src/selectors/project'
-import { timerToggle } from 'src/actions/project'
+import { currentTick, defaultTick, timerStatus } from 'src/selectors/timer'
+import { timerToggle } from 'src/actions/timer'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
 import style from 'src/styles/clicker.scss'
 
@@ -15,21 +15,27 @@ export class Clicker extends Component {
 
   static propTypes = {
     currentTick: number,
+    defaultTick: number,
     timerStatus: bool
   }
 
   shouldComponentUpdate = nextProps => {
     if (nextProps.currentTick !== this.props.currentTick) return true
+    if (nextProps.defaultTick !== this.props.defaultTick) return true
     if (nextProps.timerStatus !== this.props.timerStatus) return true
 
     return false
   }
 
+  calculatePercentage = () => {
+    return (this.props.currentTick / this.props.defaultTick) * 100
+  }
+
   styles = () => Immutable.fromJS({
     background: 'rgb(255, 110, 110)',
     position: 'absolute',
-    bottom: '0',
-    height: this.props.timerStatus ? `${this.props.currentTick}%` : '50px',
+    bottom: this.props.timerStatus ? 0 : '5%',
+    height: this.props.timerStatus ? `${this.calculatePercentage()}%` : '50px',
     width: this.props.timerStatus ? '100%' : '50px',
     opacity: this.props.timerStatus ? 1 : 0,
     transition: 'all .15s ease-out',
@@ -47,6 +53,7 @@ export class Clicker extends Component {
 const mapStateToProps = state => {
   return {
     currentTick: currentTick(state),
+    defaultTick: defaultTick(state),
     timerStatus: timerStatus(state)
   }
 }

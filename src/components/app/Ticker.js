@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { number } from 'prop-types'
-import { currentTick } from 'src/selectors/project'
+import { currentTick } from 'src/selectors/timer'
 import style from 'src/styles/ticker.scss'
 
 export class Ticker extends Component {
