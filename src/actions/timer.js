@@ -36,7 +36,7 @@ const _initialized = data => {
 const _timerStart = () => dispatch => {
   clearInterval(timer)
 
-  timer = setInterval(() => dispatch(tick()), config.SPEED)
+  timer = setInterval(() => dispatch(tick()), config.TIMER.SPEED)
 }
 
 const timerStop = () => {
@@ -49,12 +49,17 @@ export const timerToggle = () => (dispatch, getState) => {
   dispatch(_initialized(status))
 
   status
+    // this is a little bit gross but it works pretty well
     ? setTimeout(() => {
+      // the delayed toggle, gives the animation time to reach
+      // the top of the viewport, before starting to count down
       dispatch(_timerToggle(status))
       setTimeout(() => {
+        // the nested delayed timerStart allows the clicked button
+        // to disappear before the previously delayed animation starts
         dispatch(_timerStart())
-      }, config.DURATION)
-    }, config.DURATION)
+      }, config.TIMER.DURATION)
+    }, config.TIMER.DURATION)
     : setTimeout(() => {
       timerStop()
       dispatch(_timerToggle(status))
