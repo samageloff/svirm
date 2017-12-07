@@ -1,4 +1,4 @@
-import config from '../../config'
+import styles from '../variables.scss'
 import React from 'react'
 import { keyframes } from 'styled-components'
 import Transition from 'react-transition-group/Transition'
@@ -27,15 +27,14 @@ const burstOut = keyframes`
   }
 `
 
-// TODO: import from common once available
-const timingFunction = 'ease-in-out'
+const timingFunction = styles['transition_timing_function']
 
 const Burst = ({ children, duration, defaultStyle, in: inProp }) => {
 
   // There needs to be a slight speed diff between the
   // duration (passed in via props), and the animation speed
   // to avoid a flickering bug that sometimes occurs
-  const speed = (config.DURATION + 50) + 'ms'
+  const speed = styles['speed'] + 'ms'
 
   const transitionStyles = {
     entering: {

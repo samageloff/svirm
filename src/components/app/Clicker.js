@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import Immutable from 'immutable'
 import { connect } from 'react-redux'
 import { bool } from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { timerToggle } from 'src/actions/timer'
 import { initialized, timerStatus } from 'src/selectors/timer'
+import StyledDiv from 'src/components/common/styled/StyldDiv'
 import Burst from 'src/styles/transitions/burst.css'
-import style from 'src/styles/clicker.scss'
 
 export class Clicker extends Component {
   constructor(props) {
@@ -32,12 +33,31 @@ export class Clicker extends Component {
     }
   }
 
+  wrapperStyle = () => Immutable.fromJS({
+    bottom: '40px',
+    display: 'flex',
+    height: '60px',
+    position: 'absolute',
+    justifyContent: 'center',
+    textAlign: 'center',
+    width: '100%',
+    zIndex: '5',
+    button: {
+      background: 'rgb(255, 110, 110)',
+      borderRadius: '50%',
+      border: 'none',
+      cursor: 'pointer',
+      height: '60px',
+      width: '60px'
+    }
+  })
+
   render = () => (
-      <div className={style['clicker']}>
+      <StyledDiv css={this.wrapperStyle()}>
         <Burst in={this.props.initialized} duration={350} defaultStyle={this.defaultStyle()}>
           <button onClick={this.props.actions.timerToggle}></button>
         </Burst>
-      </div>
+      </StyledDiv>
     )
 }
 

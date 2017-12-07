@@ -12,8 +12,8 @@ const defaultTimerState = Immutable.fromJS({
   data: {
     timer: {
       status: false,
-      defaultTick: config.START_TIME,
-      currentTick: config.START_TIME,
+      defaultTick: config.TIMER.START_TIME,
+      currentTick: config.TIMER.START_TIME,
       initialized: false
     }
   }
