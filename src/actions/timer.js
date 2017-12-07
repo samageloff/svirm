@@ -1,6 +1,9 @@
+import config from '../config'
+
 export const TICK = 'TICK'
 export const TIMER_RESET = 'TIMER_RESET'
 export const TIMER_TOGGLE = 'TIMER_TOGGLE'
+export const INITIALIZED = 'INITIALIZED'
 
 let timer = null
 
@@ -23,10 +26,17 @@ const _timerReset = () => {
   }
 }
 
+const _initialized = data => {
+  return {
+    type: INITIALIZED,
+    data
+  }
+}
+
 const _timerStart = () => dispatch => {
   clearInterval(timer)
 
-  timer = setInterval(() => dispatch(tick()), 100)
+  timer = setInterval(() => dispatch(tick()), config.SPEED)
 }
 
 const timerStop = () => {
@@ -36,9 +46,19 @@ const timerStop = () => {
 export const timerToggle = () => (dispatch, getState) => {
   const status = !getState().timer.getIn(['data', 'timer', 'status'])
 
-  dispatch(_timerToggle(status))
+  dispatch(_initialized(status))
 
-  status ? setTimeout(() => { dispatch(_timerStart())}, 350) : timerStop()
+  status
+    ? setTimeout(() => {
+      dispatch(_timerToggle(status))
+      setTimeout(() => {
+        dispatch(_timerStart())
+      }, config.DURATION)
+    }, config.DURATION)
+    : setTimeout(() => {
+      timerStop()
+      dispatch(_timerToggle(status))
+    })
 }
 
 export const tick = () => (dispatch, getState) => {
@@ -52,7 +72,7 @@ export const tick = () => (dispatch, getState) => {
   return dispatch(_tick())
 }
 
-export const timerReset = () => (dispatch) => {
+export const timerReset = () => dispatch => {
   dispatch(_timerReset())
   dispatch(timerToggle())
 }
