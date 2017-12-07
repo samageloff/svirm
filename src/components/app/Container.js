@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Clicker from './Clicker'
-import Ticker from './Ticker'
+import Clicker from 'src/components/app/Clicker'
+import Ticker from 'src/components/app/Ticker'
+import TimePanel from 'src/components/app/TimePanel'
 import style from 'src/styles/base.scss'
 
 export class Container extends Component {
@@ -13,6 +14,7 @@ export class Container extends Component {
         <div className={style['viewport']}>
           <Ticker />
           <Clicker />
+          <TimePanel />
         </div>
       </div>
     )
