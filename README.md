@@ -1,7 +1,7 @@
 Muzli UI Interactions
 =====================
 
-This is a series of UI interactions, inspired from Muzli-featured designers, and implemented using modern web technologies. I pluck example interactions from (https://medium.muz.li/@usemuzli)[Muzli's UI Interactions of the Week]. I hope you enjoy the series.
+This is a series of UI interactions, inspired from Muzli-featured designers, and implemented using modern web technologies. I pluck example interactions from [Muzli's UI Interactions of the Week](https://medium.muz.li/@usemuzli). I hope you enjoy the series.
 
 Series 1
 --------
