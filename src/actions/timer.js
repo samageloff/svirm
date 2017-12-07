@@ -23,7 +23,7 @@ const _timerReset = () => {
   }
 }
 
-const _timerStart = () => (dispatch) => {
+const _timerStart = () => dispatch => {
   clearInterval(timer)
 
   timer = setInterval(() => dispatch(tick()), 100)
@@ -38,12 +38,12 @@ export const timerToggle = () => (dispatch, getState) => {
 
   dispatch(_timerToggle(status))
 
-  status ? setTimeout(() => { dispatch(_timerStart())}, 500) : timerStop()
+  status ? setTimeout(() => { dispatch(_timerStart())}, 350) : timerStop()
 }
 
 export const tick = () => (dispatch, getState) => {
   const currentTick = getState().timer.getIn(['data', 'timer', 'currentTick'])
-  
+
   if (currentTick === 0) {
     timerStop()
     return dispatch(timerReset())
