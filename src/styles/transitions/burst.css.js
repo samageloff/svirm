@@ -4,24 +4,29 @@ import Transition from 'react-transition-group/Transition'
 
 const burstIn = keyframes`
   0% {
-    borderRadius: 50%,
-    boxShadow: '0 0 30px 20px rgb(255, 110, 110)'
+    transform: scale(1);
   }
-  20% {
-    borderRadius: 0%;
-    boxShadow: '0',
-    width: 100%
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(0);
   }
 `
 
 const burstOut = keyframes`
-  from {
-    opacity: 1;
-    visibility: visible;
+  100% {
+    transform: scale(0);
   }
 
-  to {
-    opacity: 0;
+  50% {
+    transform: scale(1.25);    
+  }
+
+  0% {
+    transform: scale(1);    
   }
 `
 
@@ -40,8 +45,8 @@ const Burst = ({ children, duration, defaultStyle, in: inProp }) => {
       animation: `${burstIn} ${speed} ${timingFunction}`
     },
     entered: {
-      opacity: 1,
-      visibility: 'visible'
+      opacity: 0,
+      scale: 1
     },
     exiting: {
       animation: `${burstOut} ${speed} ${timingFunction}`

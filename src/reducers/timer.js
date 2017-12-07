@@ -10,8 +10,8 @@ const defaultTimerState = Immutable.fromJS({
   data: {
     timer: {
       status: false,
-      defaultTick: 60,
-      currentTick: 60
+      defaultTick: 30,
+      currentTick: 30
     }
   }
 })
