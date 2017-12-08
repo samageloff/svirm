@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
-import StyledDiv from 'src/components/common/styled/StyldDiv'
 import { number } from 'prop-types'
 import { currentTick } from 'src/selectors/timer'
+import StyledDiv from 'src/components/common/styled/StyldDiv'
+import InsetShadow from 'src/components/app/InsetShadow'
 
 export class Ticker extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export class Ticker extends Component {
     display: 'flex',
     fontSize: '7rem',
     flexDirection: 'column',
+    position: 'relative',
     fontWeight: 'bold',
     justifyContent: 'center',
     width: '100%',
@@ -33,7 +35,10 @@ export class Ticker extends Component {
   })
 
   render = () => (
-    <StyledDiv css={this.styles()}>{this.props.currentTick}</StyledDiv>
+    <StyledDiv css={this.styles()}>
+      <InsetShadow />
+      {this.props.currentTick}
+    </StyledDiv>
   )
 }
 
