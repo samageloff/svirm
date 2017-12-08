@@ -1,7 +1,7 @@
-import styles from '../variables.scss'
 import React from 'react'
 import { keyframes } from 'styled-components'
 import Transition from 'react-transition-group/Transition'
+import styles from 'src/styles/variables.scss'
 
 const burstIn = keyframes`
   0% {
@@ -27,14 +27,11 @@ const burstOut = keyframes`
   }
 `
 
-const timingFunction = styles['transition_timing_function']
+const timingFunction = styles.transition_timing_function
 
 const Burst = ({ children, duration, defaultStyle, in: inProp }) => {
 
-  // There needs to be a slight speed diff between the
-  // duration (passed in via props), and the animation speed
-  // to avoid a flickering bug that sometimes occurs
-  const speed = styles['speed'] + 'ms'
+  const speed = `${duration + 50}ms`
 
   const transitionStyles = {
     entering: {

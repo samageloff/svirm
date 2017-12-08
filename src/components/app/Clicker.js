@@ -5,6 +5,7 @@ import { bool } from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { timerToggle } from 'src/actions/timer'
 import { initialized, timerStatus } from 'src/selectors/timer'
+import styles from 'src/styles/variables.scss'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
 import Burst from 'src/styles/transitions/burst.css'
 
@@ -43,7 +44,7 @@ export class Clicker extends Component {
     width: '100%',
     zIndex: '5',
     button: {
-      background: 'rgb(255, 110, 110)',
+      background: styles.color_wrapper,
       borderRadius: '50%',
       border: 'none',
       cursor: 'pointer',
@@ -54,7 +55,7 @@ export class Clicker extends Component {
 
   render = () => (
       <StyledDiv css={this.wrapperStyle()}>
-        <Burst in={this.props.initialized} duration={350} defaultStyle={this.defaultStyle()}>
+        <Burst in={this.props.initialized} duration={parseInt(styles.transition_speed * 1000)} defaultStyle={this.defaultStyle()}>
           <button onClick={this.props.actions.timerToggle}></button>
         </Burst>
       </StyledDiv>
