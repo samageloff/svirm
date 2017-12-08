@@ -3,7 +3,7 @@ import Immutable from 'immutable'
 import { connect } from 'react-redux'
 import { bool } from 'prop-types'
 import { initialized } from 'src/selectors/timer'
-import styles from 'src/styles/variables.scss'
+import styles from 'src/styles/inset-shadow.scss'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
 
 export class InsetShadow extends Component {
@@ -22,18 +22,11 @@ export class InsetShadow extends Component {
   }
 
   style = () => Immutable.fromJS({
-    boxShadow: `inset 0 0px 60px 10px ${styles.color_viewport}`,
-    bottom: 0,
-    display: this.props.initialized ? 'none' : 'block',
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    zIndex: styles.zindex_insetShadow
+    display: this.props.initialized ? 'none' : 'block'
   })
 
   render = () => (
-    <StyledDiv css={this.style()} className='inset-shadow' />
+    <StyledDiv css={this.style()} className={styles['inset-shadow']} />
   )
 }
 
