@@ -47,6 +47,7 @@
     "immutable": "^3.8.1",
     "prop-types": "~15.5.10",
     "react-hot-loader": "^3.1.2",
+    "react-id-swiper": "^1.5.6",
     "react-immutable-proptypes": "^2.1.0",
     "react-ions": "2.0.20",
     "react-redux": "^5.0.5",
@@ -54,7 +55,8 @@
     "redux": "~3.6.0",
     "redux-thunk": "^2.1.0",
     "reselect": "^3.0.1",
-    "styled-components": "2.1.2"
+    "styled-components": "2.1.2",
+    "swiper": "^4.0.7"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.0.0-beta.31",

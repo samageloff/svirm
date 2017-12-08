@@ -29,7 +29,8 @@ body {
   display: flex;
   min-height: $size-min-height;
   position: relative;
-  min-width: $size-min-width;
+  overflow: hidden;
+  max-width: $size-min-width;
 
   @media (max-width: $size-min-width) {
     min-height: 100%;
