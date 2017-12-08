@@ -1,13 +1,13 @@
 {
-  "name": "Boilerplate",
+  "name": "Muzli-UI-Interactions",
   "version": "1.0.0",
-  "description": "React 16, Redux, Webpack 3, CSS Modules, Styled Modules",
+  "description": "A series of UI interactions, inspired from Muzli-featured designers, and implemented using modern web technologies.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samageloff/boilerplate.git"
+    "url": "git+https://github.com/samageloff/muzli-design-interactions.git"
   },
   "bugs": {
-    "url": "https://github.com/samageloff/boilerplate/issues"
+    "url": "https://github.com/samageloff/muzli-design-interactions/issues"
   },
   "license": "UNLICENSED",
   "engines": {
@@ -18,7 +18,7 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint src/",
-    "start:dev": "webpack-dev-server",
+    "start": "webpack-dev-server",
     "test": "jest",
     "build": "npm run clean && export NODE_ENV=production && webpack --config ./webpack.config.js --profile --colors",
     "clean": "rimraf dist lib"
