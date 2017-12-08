@@ -1,0 +1,17 @@
+@import './variables';
+
+.inset-shadow {
+  display: block;
+  position: relative;
+  z-index: 6;
+  
+  &::before {
+    content: ' ';
+    display: block;
+    background-color: red;
+    box-shadow: inset 0 0px 60px 10px $color-viewport;
+    height: 30px;
+    width: 30px;
+    z-index: $z-index-insetShadow;
+  }
+}
