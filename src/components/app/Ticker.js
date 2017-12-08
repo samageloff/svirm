@@ -5,6 +5,13 @@ import { number } from 'prop-types'
 import { currentTick } from 'src/selectors/timer'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
 import InsetShadow from 'src/components/app/InsetShadow'
+import Swiper from 'react-id-swiper'
+import styles from '!style-loader!css-loader!react-id-swiper/src/styles/scss/swiper.scss'
+
+const params = {
+  slidesPerView: 3,
+  centeredSlides: true
+}
 
 export class Ticker extends Component {
   constructor(props) {
@@ -37,7 +44,13 @@ export class Ticker extends Component {
   render = () => (
     <StyledDiv css={this.styles()}>
       <InsetShadow />
-      {this.props.currentTick}
+      <Swiper {...params}>
+        <div>{this.props.currentTick}</div>
+        <div>{this.props.currentTick}</div>
+        <div>{this.props.currentTick}</div>
+        <div>{this.props.currentTick}</div>
+        <div>{this.props.currentTick}</div>
+      </Swiper>
     </StyledDiv>
   )
 }
