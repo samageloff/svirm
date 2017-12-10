@@ -5,7 +5,8 @@ import {
   TICK,
   TIMER_RESET,
   TIMER_TOGGLE,
-  INITIALIZED
+  INITIALIZED,
+  SET_CURRENT_TICK
 } from '../actions/timer'
 
 const defaultTimerState = Immutable.fromJS({
@@ -14,7 +15,8 @@ const defaultTimerState = Immutable.fromJS({
       status: false,
       defaultTick: config.TIMER.START_TIME,
       currentTick: config.TIMER.START_TIME,
-      initialized: false
+      initialized: false,
+      slides: [10, 20, 30, 40, 50, 60]
     }
   }
 })
@@ -38,6 +40,13 @@ const timer = (state = defaultTimerState, action) => {
     case INITIALIZED:
       return state.withMutations(map => {
         map.setIn(['data', 'timer', 'initialized'], action.data)
+      })
+    case SET_CURRENT_TICK:
+      return state.withMutations(map => {
+        const slideList = map.getIn(['data', 'timer', 'slides'])
+
+        map.setIn(['data', 'timer', 'currentTick'], slideList.get(action.data))
+        map.setIn(['data', 'timer', 'defaultTick'], slideList.get(action.data))
       })
     default:
       return state
