@@ -1,0 +1,39 @@
+@import './variables';
+
+.triangle-base {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-triangles;
+    transform: rotate(30deg) skewX(-30deg);    
+  }
+}
+
+.bottom-triangle {
+  composes: triangle-base;
+  bottom: 0;
+  padding-bottom: 50%;
+  
+  &:before {
+    top: 0;
+    transform-origin: 0 100%;
+  }
+}
+
+.top-triangle {
+  composes: triangle-base;
+  top: 0;
+  padding-top: 50%;
+  
+  &:before {
+    bottom: 0;
+    transform-origin: 100% 0;
+  }
+}

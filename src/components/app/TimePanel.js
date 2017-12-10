@@ -4,6 +4,7 @@ import Immutable from 'immutable'
 import { bool, number } from 'prop-types'
 import { timerStatus, currentTick, defaultTick } from 'src/selectors/timer'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
+import variables from 'src/styles/variables.scss'
 
 export class TimePanel extends Component {
   constructor(props) {
@@ -27,13 +28,13 @@ export class TimePanel extends Component {
   calculatePercentage = () => (this.props.currentTick / this.props.defaultTick) * 100
 
   styles = () => Immutable.fromJS({
-    background: 'rgb(255, 110, 110)',
+    background: variables.color_wrapper,
     position: 'absolute',
     bottom: 0,
     height: this.props.timerStatus ? `${this.calculatePercentage()}%` : '0',
     width: '100%',
     opacity: 1,
-    transition: 'all .35s cubic-bezier(0.165, 0.840, 0.440, 1.000)',
+    transition: `all .35s ${variables.transition_timing_function}`,
     zIndex: 1
   })
 

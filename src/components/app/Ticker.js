@@ -6,6 +6,7 @@ import { currentTick } from 'src/selectors/timer'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
 import Carousel from 'src/components/app/Carousel'
 import InsetShadow from 'src/components/app/InsetShadow'
+import variables from 'src/styles/variables.scss'
 
 export class Ticker extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export class Ticker extends Component {
 
   styles = () => Immutable.fromJS({
     alignItems: 'center',
-    color: 'rgb(255, 255, 255)',
+    color: variables.color_white,
     display: 'flex',
     fontSize: '1rem',
     flexDirection: 'column',
@@ -32,7 +33,7 @@ export class Ticker extends Component {
     fontWeight: 'bold',
     justifyContent: 'center',
     width: '100%',
-    zIndex: '3'
+    zIndex: variables.zindex_ticker
   })
 
   render = () => (
