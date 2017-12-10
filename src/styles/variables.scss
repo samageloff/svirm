@@ -1,13 +1,19 @@
 $base-font-size: 14px;
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$custom-font-family: 'Inconsolata', monospace;
 
 $color-wrapper: rgb(255, 110, 110);
 $color-viewport: rgb(53, 64, 81);
+$color-triangles: rgb(45, 54, 69);
 
-$size-min-height: 736px;
-$size-min-width: 414px;
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
 
-$z-index-insetShadow: 4;
+$size-min-height: 667px;
+$size-min-width: 375px;
+
+$z-index-viewport: 10;
+$z-index-insetShadow: 5;
 $z-index-clicker: 3;
 $z-index-ticker: 2;
 $z-index-timePanel: 1;
@@ -18,8 +24,12 @@ $transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
 :export {
   base_font_size: $base-font-size;
   base_font_family: $base-font-family;
+  custom_font_family: $custom-font-family;
   color_wrapper: $color-wrapper;
   color_viewport: $color-viewport;
+  color_triangles: $color-triangles;
+  color_white: $color-white;
+  color_black: $color-black;
   wrapper_minHeight: $size-min-height;
   wrapper_minWidth: $size-min-width;
   zindex_clicker: $z-index-clicker;

@@ -1,17 +1,22 @@
 @import './variables';
 
-.inset-shadow {
-  display: block;
-  position: relative;
-  z-index: 6;
-  
-  &::before {
-    content: ' ';
-    display: block;
-    background-color: red;
-    box-shadow: inset 0 0px 60px 10px $color-viewport;
-    height: 30px;
-    width: 30px;
-    z-index: $z-index-insetShadow;
-  }
+.inset-shadow-base {
+  content: ' ';
+  height: 160px;
+  position: absolute;
+  width: 90px;
+  transition: opacity .35s ease;
+  z-index: $z-index-insetShadow;
+}
+
+.inset-shadow-left {  
+  composes: inset-shadow-base;
+  background-image: linear-gradient(to left, transparent, $color-viewport);
+  left: 0;
+}
+
+.inset-shadow-right {
+  composes: inset-shadow-base;  
+  background-image: linear-gradient(to right, transparent, $color-viewport);
+  right: 0;
 }
