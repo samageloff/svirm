@@ -4,6 +4,7 @@ export const TICK = 'TICK'
 export const TIMER_RESET = 'TIMER_RESET'
 export const TIMER_TOGGLE = 'TIMER_TOGGLE'
 export const INITIALIZED = 'INITIALIZED'
+export const SET_CURRENT_TICK = 'SET_CURRENT_TICK'
 
 let timer = null
 
@@ -29,6 +30,13 @@ const _timerReset = () => {
 const _initialized = data => {
   return {
     type: INITIALIZED,
+    data
+  }
+}
+
+const _setCurrentTick = data => {
+  return {
+    type: SET_CURRENT_TICK,
     data
   }
 }
@@ -80,4 +88,8 @@ export const tick = () => (dispatch, getState) => {
 export const timerReset = () => dispatch => {
   dispatch(_timerReset())
   dispatch(timerToggle())
+}
+
+export const setCurrentTick = tick => dispatch => {
+  dispatch(_setCurrentTick(tick))
 }

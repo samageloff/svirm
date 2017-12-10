@@ -27,10 +27,10 @@ body {
   background-color: $color-viewport;
   box-shadow: 0 4px 40px 0px $color-viewport;
   display: flex;
-  min-height: $size-min-height;
+  height: $size-min-height;
   position: relative;
   overflow: hidden;
-  min-width: $size-min-width;
+  width: $size-min-width;
 
   @media (max-width: $size-min-width) {
     min-height: 100%;

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
-import { Swiper } from 'swiper/dist/js/swiper.esm.js'
-import { number } from 'prop-types'
+import { bool, number } from 'prop-types'
 import { currentTick } from 'src/selectors/timer'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
+import Carousel from 'src/components/app/Carousel'
 import InsetShadow from 'src/components/app/InsetShadow'
-import styles from 'src/styles/swiper.scss'
 
 export class Ticker extends Component {
   constructor(props) {
@@ -19,15 +18,8 @@ export class Ticker extends Component {
 
   shouldComponentUpdate = nextProps => {
     if (nextProps.currentTick !== this.props.currentTick) return true
-
+    
     return false
-  }
-
-  componentDidMount = () => {
-    new Swiper('.swiper-container', {
-      slidesPerView: 3,
-      centeredSlides: true
-    })
   }
 
   styles = () => Immutable.fromJS({
@@ -45,13 +37,7 @@ export class Ticker extends Component {
 
   render = () => (
     <StyledDiv css={this.styles()}>
-      <div className='swiper-container'>
-        <div className='swiper-wrapper'>
-          <div className='swiper-slide'>30</div>
-          <div className='swiper-slide'>{this.props.currentTick}</div>
-          <div className='swiper-slide'>50</div>
-        </div>
-      </div>
+      <Carousel />
     </StyledDiv>
   )
 }
