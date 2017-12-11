@@ -9,7 +9,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    port: process.env.PORT || 3000
+    port: process.env.PORT
   },
   plugins: [
     new UglifyJSPlugin({
