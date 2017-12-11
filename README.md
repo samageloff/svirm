@@ -8,24 +8,4 @@ Series 1
 ### Countdown Timer
 #### Designer: Oleg Frolov
 https://dribbble.com/shots/2343572-Countdown-timer
-
-
-Get the app running
---------
-
-``` 
-npm install
-npm run start:dev
-```
-
-Testing
--------
-Run all tests:
-```
-npm test
-```
-
-Update test snapshots:
-```
-npm test -- --updateSnapshot
-```
+#### Demo: https://muzli-design-interactions.herokuapp.com/
