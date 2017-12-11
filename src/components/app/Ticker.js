@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
-import { bool, number } from 'prop-types'
+import { number } from 'prop-types'
 import { currentTick } from 'src/selectors/timer'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
 import Carousel from 'src/components/app/Carousel'
-import InsetShadow from 'src/components/app/InsetShadow'
 import variables from 'src/styles/variables.scss'
 
 export class Ticker extends Component {
@@ -19,7 +18,7 @@ export class Ticker extends Component {
 
   shouldComponentUpdate = nextProps => {
     if (nextProps.currentTick !== this.props.currentTick) return true
-    
+
     return false
   }
 

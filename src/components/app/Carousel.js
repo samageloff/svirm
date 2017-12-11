@@ -7,7 +7,6 @@ import { bool, number } from 'prop-types'
 import StyledDiv from 'src/components/common/styled/StyldDiv'
 import { setCurrentTick } from 'src/actions/timer'
 import { currentTick, initialized, slides } from 'src/selectors/timer'
-import styles from 'src/styles/carousel.scss'
 import shadow from 'src/styles/inset-shadow.scss'
 import variables from 'src/styles/variables.scss'
 
@@ -24,7 +23,7 @@ export class Carousel extends Component {
   shouldComponentUpdate = nextProps => {
     if (nextProps.currentTick !== this.props.currentTick) return true
     if (nextProps.initialized !== this.props.initialized) return true
-    
+
     return false
   }
 
@@ -59,7 +58,7 @@ export class Carousel extends Component {
   })
 
   shadowStyles = () => Immutable.fromJS({
-    opacity: this.props.initialized ? '0' : '1',
+    opacity: this.props.initialized ? '0' : '1'
   })
 
   render = () => [
