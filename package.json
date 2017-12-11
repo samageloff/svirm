@@ -22,7 +22,8 @@
     "test": "jest",
     "build": "npm run clean && export NODE_ENV=production && webpack --config ./webpack.config.js --profile --colors",
     "clean": "rimraf dist lib",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "babel-node": "babel-node"
   },
   "jest": {
     "modulePaths": [
