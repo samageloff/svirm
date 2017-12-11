@@ -1,7 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const webpack = require('webpack')
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/src/index.html',
@@ -14,12 +12,6 @@ module.exports = {
     app: './src/index.js',
     vendor: ['react', 'react-dom']
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    hot: true,
-    port: 3000
-  },
-  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
     alias: {
@@ -49,14 +41,7 @@ module.exports = {
         }
       },
       {
-        loader: 'postcss-loader',
-        options: {
-          plugins: function () {
-            return [
-              autoprefixer({ browsers: ['last 2 versions'] })
-            ]
-          }
-        }
+        loader: 'postcss-loader'
       },
       {
         loader: 'sass-loader'
@@ -64,10 +49,7 @@ module.exports = {
     }]
   },
   plugins: [
-    HTMLWebpackPluginConfig,
-    new CleanWebpackPlugin(['dist']),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    HTMLWebpackPluginConfig
   ],
   output: {
     filename: '[name].bundle.js',
