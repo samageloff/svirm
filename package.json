@@ -17,13 +17,9 @@
   "author": "Sam Ageloff",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint src/",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "jest",
-    "build": "npm run clean && export NODE_ENV=production && webpack --config ./webpack.config.js --profile --colors",
-    "clean": "rimraf dist lib",
-    "postinstall": "npm run build",
-    "babel-node": "babel-node"
+    "build": "webpack --config webpack.prod.js"
   },
   "jest": {
     "modulePaths": [
@@ -45,8 +41,13 @@
   },
   "dependencies": {
     "axios": "^0.11.0",
+    "babel-loader": "^6.2.3",
+    "clean-webpack-plugin": "^0.1.8",
+    "css-loader": "^0.19.0",
     "deepmerge": "^2.0.0",
+    "html-webpack-plugin": "^1.6.1",
     "immutable": "^3.8.1",
+    "postcss-loader": "^0.6.0",
     "prop-types": "~15.5.10",
     "react-hot-loader": "^3.1.2",
     "react-id-swiper": "^1.5.6",
@@ -57,18 +58,14 @@
     "redux": "~3.6.0",
     "redux-thunk": "^2.1.0",
     "reselect": "^3.0.1",
-    "rimraf": "^2.4.3",    
+    "rimraf": "^2.4.3",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.12.4",
     "styled-components": "2.1.2",
     "swiper": "^4.0.7",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4",
-    "html-webpack-plugin": "^1.6.1",
-    "clean-webpack-plugin": "^0.1.8",
-    "babel-loader": "^6.2.3",
-    "style-loader": "^0.12.4",
-    "css-loader": "^0.19.0",
-    "postcss-loader": "^0.6.0",
-    "sass-loader": "^3.2.0"
+    "webpack-dev-server": "^2.9.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.0.0-beta.31",
@@ -110,6 +107,7 @@
     "sinon-chai": "^2.8.0",
     "static-loader": "^0.1.8",
     "transform-loader": "^0.2.3",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack-merge": "^4.1.1"
   }
 }
