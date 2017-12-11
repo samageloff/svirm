@@ -80,7 +80,9 @@
     "react-dom": "16.0.0",
     "static-loader": "^0.1.8",
     "url-loader": "^0.5.7",
-    "file-loader": "^0.8.5",
+    "file-loader": "^0.8.5"
+  },
+  "devDependencies": {
     "babel-preset-airbnb": "^1.0.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2017": "^6.24.1",
@@ -107,7 +109,5 @@
     "sinon-chai": "^2.8.0",
     "transform-loader": "^0.2.3",
     "webpack-merge": "^4.1.1"
-  },
-  "devDependencies": {
   }
 }
