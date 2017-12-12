@@ -38,11 +38,7 @@ export class Carousel extends Component {
     carousel.on('slideChange', () => this.props.actions.setCurrentTick(carousel.realIndex))
   }
 
-  getSlides = () => {
-    return this.props.slides.map((slide, index) => {
-      return <div key={index} className='swiper-slide'>{slide}</div>
-    })
-  }
+  getSlides = () => this.props.slides.map((slide, index) => <div key={index} className='swiper-slide'>{slide}</div>)
 
   currentTickStyles = () => Immutable.fromJS({
     display: this.props.initialized ? 'block' : 'none',

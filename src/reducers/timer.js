@@ -7,9 +7,9 @@ import {
   TIMER_TOGGLE,
   INITIALIZED,
   SET_CURRENT_TICK
-} from '../actions/timer'
+} from 'src/actions/timer'
 
-const defaultTimerState = Immutable.fromJS({
+export const defaultTimerState = Immutable.fromJS({
   data: {
     timer: {
       status: false,
