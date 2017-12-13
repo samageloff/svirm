@@ -1,31 +1,42 @@
-import Immutable from 'immutable'
-import { timerToggle, tick, timerReset, setCurrentTick } from 'src/actions/timer'
+import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import { setCurrentTick, timerReset } from 'src/actions/timer'
+import { defaultTimerState } from 'src/reducers/timer'
+
+const middlewares = [thunk]
+const mockStore = configureStore(middlewares)
 
 describe('Actions:Timer', () => {
+  describe('setCurrentTick', () => {
+    const store = mockStore(defaultTimerState)
+
+    store.dispatch(setCurrentTick())
+
+    const actions = store.getActions()
+    const expectedPayload = {
+      type: 'SET_CURRENT_TICK',
+      'data': undefined
+    }
+
+    it('should dispatch an action', () => {
+      expect(actions).toEqual([expectedPayload])
+    })
+  })
 
   describe('timerReset', () => {
-    const resetCallback = jest.fn()
+    const store = mockStore(defaultTimerState)
 
-    it('should call timerReset', () => {
-      timerReset()(resetCallback)
-      expect(resetCallback.mock.calls.length).toBe(2)
+    store.dispatch(timerReset())
+
+    const actions = store.getActions()
+
+    const expectedPayload = {
+      type: 'TIMER_RESET'
+    }
+
+    it('should dispatch an action', () => {
+      expect(actions).toEqual([expectedPayload])
     })
   })
 
-  describe('setCurrentTick', () => {
-    const currentTickCallback = jest.fn()
-    const mockTick = {'data': 2, 'type': 'SET_CURRENT_TICK'}
-
-    it('should call setCurrentTick', () => {
-      setCurrentTick(2)(currentTickCallback)
-      expect(currentTickCallback.mock.calls.length).toBe(1)
-      expect(currentTickCallback.mock.calls[0][0]).toEqual(mockTick)
-    })
-  })
-
-  describe('tick', () => {
-    it.skip('should call setCurrentTick', () => {
-      tick()()
-    })
-  })
 })
