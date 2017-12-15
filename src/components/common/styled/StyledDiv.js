@@ -2,16 +2,16 @@ import styled from 'styled-components'
 import { map } from 'react-immutable-proptypes'
 import { Map } from 'immutable'
 
-export const StyldButton = styled.button`
+export const StyledDiv = styled.div`
   ${props => props.css.toJS()}
 `
 
-StyldButton.defaultProps = {
+StyledDiv.defaultProps = {
   css: Map()
 }
 
-StyldButton.propTypes = {
+StyledDiv.propTypes = {
   css: map
 }
 
-export default StyldButton
+export default StyledDiv

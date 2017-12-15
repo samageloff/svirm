@@ -3,11 +3,11 @@ import Immutable from 'immutable'
 import { connect } from 'react-redux'
 import { bool } from 'prop-types'
 import { bindActionCreators } from 'redux'
-import { timerToggle } from 'src/actions/timer'
-import { initialized, timerStatus } from 'src/selectors/timer'
-import styles from 'src/styles/variables.scss'
-import StyledDiv from 'src/components/common/styled/StyldDiv'
-import Burst from 'src/styles/transitions/burst.css'
+import { timerToggle } from 'timer/actions'
+import { initialized, timerStatus } from 'timer/selectors'
+import styles from 'common/styles/variables.scss'
+import StyledDiv from 'common/components/styled/StyledDiv'
+import Burst from 'common/styles/transitions/burst.css'
 
 export class Clicker extends Component {
   constructor(props) {

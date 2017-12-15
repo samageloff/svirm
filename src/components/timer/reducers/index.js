@@ -53,4 +53,4 @@ const timer = (state = defaultTimerState, action) => {
   }
 }
 
-export default timer
+export default index

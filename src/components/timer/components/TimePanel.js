@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Immutable from 'immutable'
 import { bool, number } from 'prop-types'
-import { timerStatus, currentTick, defaultTick } from 'src/selectors/timer'
-import StyledDiv from 'src/components/common/styled/StyldDiv'
-import variables from 'src/styles/variables.scss'
+import { timerStatus, currentTick, defaultTick } from 'timer/selectors'
+import StyledDiv from 'common/styled/StyledDiv'
+import variables from 'common/styles/variables.scss'
 
 export class TimePanel extends Component {
   constructor(props) {

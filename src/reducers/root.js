@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import timer from './timer'
+import timer from 'src/components/timer/reducers'
 
 const rootReducer = combineReducers({
   timer

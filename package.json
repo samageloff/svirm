@@ -72,6 +72,7 @@
     "react-immutable-proptypes": "^2.1.0",
     "react-ions": "2.0.20",
     "react-redux": "^5.0.5",
+    "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.2.1",
     "redux": "~3.6.0",
     "redux-thunk": "^2.1.0",

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import Immutable from 'immutable'
+import { connect } from 'react-redux'
 import { number } from 'prop-types'
-import { currentTick } from 'src/selectors/timer'
-import StyledDiv from 'src/components/common/styled/StyldDiv'
-import Carousel from 'src/components/app/Carousel'
-import variables from 'src/styles/variables.scss'
+import { currentTick } from 'timer/selectors'
+import StyledDiv from 'common/components/styled/StyledDiv'
+import Carousel from 'common/components/Carousel'
+import variables from 'common/styles/variables.scss'
 
 export class Ticker extends Component {
   constructor(props) {

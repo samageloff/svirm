@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux'
 import Immutable from 'immutable'
 import { Swiper } from 'swiper/dist/js/swiper.esm.js'
 import { bool, number } from 'prop-types'
-import StyledDiv from 'src/components/common/styled/StyldDiv'
-import { setCurrentTick } from 'src/actions/timer'
-import { currentTick, initialized, slides } from 'src/selectors/timer'
-import shadow from 'src/styles/inset-shadow.scss'
-import variables from 'src/styles/variables.scss'
+import StyledDiv from 'common/styled/StyledDiv'
+import { setCurrentTick } from 'timer/actions'
+import { currentTick, initialized, slides } from 'timer/selectors'
+import shadow from 'timer/styles/inset-shadow.scss'
+import variables from 'common/styles/variables.scss'
 
 export class Carousel extends Component {
   constructor(props) {

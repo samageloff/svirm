@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import style from 'src/styles/triangles.scss'
+import style from 'timer/styles/triangles.scss'
 
 const Triangles = () => {
   return [
