@@ -1,6 +1,5 @@
 @import './normalize';
 @import './variables';
-@import './carousel';
 
 html, body {
   height: 100%;
@@ -13,30 +12,4 @@ body {
   overflow: auto;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-}
-
-.wrapper {
-  align-items: center;
-  background: $color-wrapper;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-}
-
-.viewport {
-  align-items: center;
-  background-color: $color-viewport;
-  box-shadow: 0 4px 60px -10px rgba($color-black, .5);
-  display: flex;
-  height: $size-min-height;
-  position: relative;
-  overflow: hidden;
-  width: $size-min-width;
-  z-index: $z-index-viewport;
-
-  @media (max-width: $size-min-width) {
-    height: 100%;
-    width: 100%;
-  }
 }

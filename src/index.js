@@ -3,7 +3,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import configureStore from './configureStore'
-import Container from 'src/components/app/Container'
+import Timer from 'src/components/timer/containers/Timer'
+import styles from 'common/styles/base.scss'
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('We are in development mode.')
@@ -14,7 +15,7 @@ const store = configureStore()
 
 ReactDOM.render((
   <Provider store={store}>
-    <Container />
+    <Timer />
   </Provider>
 ), document.getElementById('app'))
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import style from 'common/styles/base.scss'
+import style from 'timer/styles/base.scss'
 import Clicker from 'timer/components/Clicker'
 import Ticker from 'timer/components/Ticker'
 import TimePanel from 'timer/components/TimePanel'

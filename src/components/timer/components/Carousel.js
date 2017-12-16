@@ -8,6 +8,7 @@ import StyledDiv from 'common/styled/StyledDiv'
 import { setCurrentTick } from 'timer/actions'
 import { currentTick, initialized, slides } from 'timer/selectors'
 import shadow from 'timer/styles/inset-shadow.scss'
+import styles from 'timer/styles/carousel.scss'
 import variables from 'common/styles/variables.scss'
 
 export class Carousel extends Component {

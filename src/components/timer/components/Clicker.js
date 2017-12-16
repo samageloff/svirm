@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import { timerToggle } from 'timer/actions'
 import { initialized, timerStatus } from 'timer/selectors'
 import styles from 'common/styles/variables.scss'
-import StyledDiv from 'common/components/styled/StyledDiv'
+import StyledDiv from 'common/styled/StyledDiv'
 import Burst from 'common/styles/transitions/burst.css'
 
 export class Clicker extends Component {

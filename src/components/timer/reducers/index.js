@@ -1,4 +1,4 @@
-import config from '../config'
+import config from 'src/config'
 import Immutable from 'immutable'
 
 import {
@@ -7,7 +7,7 @@ import {
   TIMER_TOGGLE,
   INITIALIZED,
   SET_CURRENT_TICK
-} from 'src/actions/timer'
+} from 'timer/actions'
 
 export const defaultTimerState = Immutable.fromJS({
   data: {
@@ -53,4 +53,4 @@ const timer = (state = defaultTimerState, action) => {
   }
 }
 
-export default index
+export default timer

@@ -1,4 +1,4 @@
-import config from '../config'
+import config from 'src/config'
 
 export const TICK = 'TICK'
 export const TIMER_RESET = 'TIMER_RESET'

@@ -3,8 +3,8 @@ import Immutable from 'immutable'
 import { connect } from 'react-redux'
 import { number } from 'prop-types'
 import { currentTick } from 'timer/selectors'
-import StyledDiv from 'common/components/styled/StyledDiv'
-import Carousel from 'common/components/Carousel'
+import StyledDiv from 'common/styled/StyledDiv'
+import Carousel from 'timer/components/Carousel'
 import variables from 'common/styles/variables.scss'
 
 export class Ticker extends Component {
