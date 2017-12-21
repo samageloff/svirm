@@ -11,8 +11,8 @@
   },
   "license": "UNLICENSED",
   "engines": {
-    "node": "4.4.3",
-    "npm": "3.10.10"
+    "node": "6.4.0",
+    "npm": "3.10.3"
   },
   "author": "Sam Ageloff",
   "main": "server.js",
