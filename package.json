@@ -23,7 +23,7 @@
     "coverage": "jest --coverage",
     "clean": "rimraf dist",
     "build": "npm run clean && export NODE_ENV=production && webpack --config webpack.prod.js --progress --profile --colors",
-    "postinstall": "if [ \"$MUZLI_POSTINSTALL\" = true ]; then npm run build; else echo 0; fi"
+    "postinstall": "if [ $MUZLI_POSTINSTALL ]; then npm run build; fi"
   },
   "jest": {
     "modulePaths": [
