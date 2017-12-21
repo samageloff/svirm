@@ -1,6 +1,5 @@
 import Immutable from 'immutable'
-import timer from 'src/reducers/timer'
-import { defaultTimerState } from 'src/reducers/timer'
+import timer, { defaultTimerState } from 'timer/reducers'
 
 import {
   TICK,
@@ -8,7 +7,7 @@ import {
   TIMER_TOGGLE,
   INITIALIZED,
   SET_CURRENT_TICK
-} from 'src/actions/timer'
+} from 'timer/actions'
 
 describe('Reducer::Timer', () => {
   it('should return the default timer state', () => {

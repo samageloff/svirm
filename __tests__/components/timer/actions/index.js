@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { setCurrentTick, timerReset } from 'src/actions/timer'
-import { defaultTimerState } from 'src/reducers/timer'
+import { setCurrentTick, timerReset } from 'timer/actions'
+import { defaultTimerState } from 'timer/reducers'
 
 const middlewares = [thunk]
 const mockStore = configureStore(middlewares)
