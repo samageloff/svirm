@@ -18,8 +18,10 @@
   "main": "server.js",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "test": "jest",
-    "build": "export NODE_ENV=production && webpack --config ./webpack.prod.config.js --profile --colors",
+    "test": "node --harmony_proxies node_modules/.bin/jest --no-cache",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "build": "export NODE_ENV=production && webpack --config ./webpack.prod.js --profile --colors",
     "postinstall": "if [ \"$MUZLI_POSTINSTALL\" = true ]; then npm run build; else echo 0; fi"
   },
   "jest": {
