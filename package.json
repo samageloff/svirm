@@ -17,7 +17,7 @@
   "author": "Sam Ageloff",
   "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "node ./server",
     "test": "jest",
     "build": "export NODE_ENV=production && webpack --config webpack.prod.js",
     "dev": "webpack-dev-server",
