@@ -22,7 +22,8 @@
     "test": "node --harmony_proxies node_modules/.bin/jest --no-cache",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
-    "build": "export NODE_ENV=production && webpack --config ./webpack.prod.js --profile --colors",
+    "clean": "rimraf dist",
+    "build": "npm run clean && export NODE_ENV=production && webpack --config ./webpack.prod.js --profile --colors",
     "postinstall": "if [ \"$MUZLI_POSTINSTALL\" = true ]; then npm run build; else echo 0; fi"
   },
   "jest": {
