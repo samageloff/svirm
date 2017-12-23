@@ -17,7 +17,8 @@
   "author": "Sam Ageloff",
   "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "node ./server",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
     "test": "node --harmony_proxies node_modules/.bin/jest --no-cache",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
