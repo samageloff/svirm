@@ -6,5 +6,5 @@ Series 1
 --------
 #### Countdown Timer
 ###### Designer: Oleg Frolov
-###### Demo: https://muzli-ui-interactions.herokuapp.com/
+###### Live example: https://muzli-ui-interactions.herokuapp.com/
 ![Countdown Timer](https://cdn.dribbble.com/users/108183/screenshots/2343572/countdowntimer.gif)
