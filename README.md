@@ -6,6 +6,6 @@ This is a series of UI interactions, inspired from Muzli-featured designers, and
 Series 1
 --------
 ### Countdown Timer
-#### Designer: Oleg Frolov
-https://dribbble.com/shots/2343572-Countdown-timer
-#### Demo: https://muzli-ui-interactions.herokuapp.com/
+###### Designer: Oleg Frolov
+###### Demo: https://muzli-ui-interactions.herokuapp.com/
+![Countdown Timer](https://cdn.dribbble.com/users/108183/screenshots/2343572/countdowntimer.gif)
