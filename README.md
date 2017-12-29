@@ -8,4 +8,4 @@ Series 1
 ### Countdown Timer
 #### Designer: Oleg Frolov
 https://dribbble.com/shots/2343572-Countdown-timer
-#### Demo: https://muzli-design-interactions.herokuapp.com/
+#### Demo: https://muzli-ui-interactions.herokuapp.com/
