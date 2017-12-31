@@ -11,20 +11,20 @@
   },
   "license": "UNLICENSED",
   "engines": {
-    "node": "4.4.3",
-    "npm": "3.10.10"
+    "node": "9.3.0",
+    "npm": "5.5.1"
   },
   "author": "Sam Ageloff",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server",
     "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "node ./server",
     "test": "node --harmony_proxies node_modules/.bin/jest --no-cache",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "clean": "rimraf dist",
-    "build": "npm run clean && export NODE_ENV=production && webpack --config ./webpack.prod.js --profile --colors",
-    "postinstall": "if [ \"$MUZLI_POSTINSTALL\" = true ]; then npm run build; else echo 0; fi"
+    "build": "npm run clean && export NODE_ENV=production && webpack --config webpack.prod.js --progress --profile --colors",
+    "heroku-postbuild": "npm run build"
   },
   "jest": {
     "modulePaths": [
