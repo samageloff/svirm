@@ -6,11 +6,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Howdy folks.
+          name: Initializing deployment.
+          command: echo Deploying....
       - run:
-          name: Print the Current Time
-          command: date
-      - run:
-          name: Running tests
-          command: npm test
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
