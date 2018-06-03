@@ -4,6 +4,7 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 console.log('!!PORT!!', PORT)
+console.log(process.env.NODE_ENV)
 
 app.use(express.static(path.join(__dirname, 'dist')))
 

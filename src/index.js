@@ -3,8 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import configureStore from './configureStore'
-import Timer from 'src/components/timer/containers/Timer'
-import styles from 'common/styles/base.scss'
+import RouterWrapper from './router'
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('We are in development mode.')
@@ -15,7 +14,7 @@ const store = configureStore()
 
 ReactDOM.render((
   <Provider store={store}>
-    <Timer />
+    <RouterWrapper />
   </Provider>
 ), document.getElementById('app'))
 
