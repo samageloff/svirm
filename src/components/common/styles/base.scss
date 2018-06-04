@@ -13,3 +13,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
+
+.outer-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column
+}

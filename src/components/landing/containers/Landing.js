@@ -5,7 +5,7 @@ import Block from 'landing/components/Block'
 
 const Landing = () => (
   <div className={style['wrapper']}>
-    {/* <Grid /> */}
+    <Grid />
   </div>
 )
 

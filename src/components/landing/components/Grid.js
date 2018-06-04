@@ -27,22 +27,10 @@ export class Grid extends Component {
   }
 
   wrapperStyle = () => Immutable.fromJS({
-    bottom: '40px',
     display: 'flex',
-    height: '60px',
-    position: 'absolute',
-    justifyContent: 'center',
-    textAlign: 'center',
-    width: '100%',
-    zIndex: '5',
-    button: {
-      background: styles.color_wrapper,
-      borderRadius: '50%',
-      border: 'none',
-      cursor: 'pointer',
-      height: '60px',
-      width: '60px'
-    }
+    height: '100%',
+    flexDirection: 'column',
+    width: '100%'
   })
 
   render = () => (
