@@ -9,7 +9,7 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     hot: true,
-    port: 3000
+    port: 4000
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
