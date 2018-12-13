@@ -30,14 +30,35 @@ const littleSquare = (justify, align) => Map({
   }
 })
 
-let accumulator = 0
+const arrayFromNumber = num => Array.apply(null, {length: num}).map(Number.call, Number)
 
-const iterator = index => {
-  index % matrix === 0 
-    ? accumulator = 0
-    : accumulator += 1
-
-  return accumulator
+const sliceArrayFrom = a => {
+  if (a.length <= 4) {
+    return [
+      a.slice(a[0], a[4])
+    ]
+  }
+  if (a.length >= 4 && a.length <= 8) {
+    return [
+      a.slice(a[0], a[4]),
+      a.slice(a[4], a[8])
+    ]
+  }
+  if (a.length >= 8 && a.length <= 12) {
+    return [
+      a.slice(a[0], a[4]),
+      a.slice(a[4], a[8]),
+      a.slice(a[8], a[12])
+    ]
+  }
+  if (a.length >= 12 && a.length <= 16) {
+    return [
+      a.slice(a[0], a[4]), 
+      a.slice(a[4], a[8]), 
+      a.slice(a[8], a[12]), 
+      a.slice(a[12], a[16])
+    ]
+  }
 }
 
 export class Squares extends Component {
@@ -46,66 +67,69 @@ export class Squares extends Component {
   }
 
   getLittleSquares = n => {
-    const littleSquareArray = Array.apply(null, {length: n}).map(Number.call, Number)
+    const littleSquareArray = arrayFromNumber(n)
 
     return littleSquareArray.map(index => {
       return <em key={index} />
     })
   }
 
-  indexToSquare = (row, index) => {
-    let val = 0
-
-    switch (row, index) {
-      case row === 4 && (index >= 12 && index <= 15):
-        val = index
-      case row === 3 && (index >= 8 && index <= 11):
-        val = index
-      case row === 2 && (index >= 4 && index <= 7):
-        val = index
-      case row === 1 && (index >= 0 && index <= 3):
-        val = index
-    }
-
-    return val
-  }
-
   squareTemplate = index => {
-    const row = {
-      4: this.indexToSquare(4, index),
-      3: this.indexToSquare(3, index),
-      2: this.indexToSquare(2, index),
-      1: this.indexToSquare(1, index)
+    const array = arrayFromNumber(index)
+    const slice = sliceArrayFrom(array)
+
+    const len = {
+      slice3: slice[3] && slice[3].length,
+      slice2: slice[2] && slice[2].length,
+      slice1: slice[1] && slice[1].length,
+      slice0: slice[0] && slice[0].length
     }
 
     return <StyledDiv key={index} css={bigSquare}>
-      <StyledDiv css={littleSquare('flex-start', 'flex-end')}>
-        {this.getLittleSquares(row[4])}
+      {
+        len.slice3 &&
+          <StyledDiv css={littleSquare('flex-start', 'flex-end')}>
+            {this.getLittleSquares(len.slice3)}
+          </StyledDiv>
+      }
+      {
+        len.slice2 &&
+          <StyledDiv css={littleSquare('flex-end')}>
+            {this.getLittleSquares(len.slice2)}
+          </StyledDiv>
+      }
+      {
+        len.slice1 &&
+          <StyledDiv css={littleSquare('flex-start', 'flex-end')}>
+            {this.getLittleSquares(len.slice1)}
+          </StyledDiv>
+      }
+      {
+        len.slice0 &&
+          <StyledDiv css={littleSquare('flex-end')}>
+            {this.getLittleSquares(len.slice0)}
+          </StyledDiv>
+      }
       </StyledDiv>
-      <StyledDiv css={littleSquare('flex-end')}>
-        {this.getLittleSquares(row[3])}
-      </StyledDiv>        
-      <StyledDiv css={littleSquare('flex-start', 'flex-end')}>
-        {this.getLittleSquares(row[2])}
-      </StyledDiv>        
-      <StyledDiv css={littleSquare('flex-end')}>
-        {this.getLittleSquares(row[1])}
-      </StyledDiv>        
-    </StyledDiv>
   }
 
-  generateSquares = () => {
-    const squareArray = Array.apply(null, {length: this.props.matrix}).map(Number.call, Number)
+  generatedSquares = () => {
+    const squareArray = arrayFromNumber(this.props.matrix)
 
-    return squareArray.map((square, index) => {
-      return this.squareTemplate(index)
+    let slicedArray = squareArray.splice(1, this.props.index)
+    let reversedArray = slicedArray.reverse()
+  
+    let mutatedSquareArray = reversedArray.concat(squareArray)
+
+    return mutatedSquareArray.map((square, index) => {
+      return this.squareTemplate(square)
     })
   }
 
   render = () => {
     return (
-      <StyledDiv>
-        {this.generateSquares()}
+      <StyledDiv className='column'>
+        {this.generatedSquares()}
       </StyledDiv>
     )
   }

@@ -20,14 +20,16 @@ export class Columns extends Component {
 
   static propTypes = {
     matrix: number
-  }  
+  }
+
+  nodeListToArray = arr => [].slice.call(arr)
 
   generateColumns = () => {
     const columnArray = Array.apply(null, {length: this.props.matrix}).map(Number.call, Number)
 
     return columnArray.map((column, index) => {
       return <StyledDiv key={`grid-${index}`} css={columnStyles}>
-        <Squares matrix={this.props.matrix} />
+        <Squares matrix={this.props.matrix} index={index} />
       </StyledDiv>
     })
   }
