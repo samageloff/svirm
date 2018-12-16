@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { number } from 'prop-types'
 import { Map } from 'immutable'
 import StyledDiv from 'common/styled/StyledDiv'
+import { palatte } from '../styles/colors'
 import Squares from './Squares'
 
 const columnStyles = Map({
   alignContent: 'baseline',
-  boxShadow: '0 0 0 .5px red',
+  boxShadow: `0 0 0 .5px ${palatte.secondary}`,
   display: 'flex',
   flexDirection: 'column-reverse',
   flexWrap: 'wrap',

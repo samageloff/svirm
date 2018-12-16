@@ -3,13 +3,14 @@ import { Map } from 'immutable'
 import StyledDiv from 'common/styled/StyledDiv'
 import { palatte } from '../styles/colors'
 
-const bigSquare = Map({
-  background: palatte.primary,
-  opacity: '.5',
-  boxShadow: '0 0 0 .5px red',
+const bigSquare = flip => Map({
+  background: palatte.secondary,
+  opacity: '.85',
+  boxShadow: `0 0 0 .5px ${palatte.lines}`,
   flexWrap: 'wrap',
   justifyContent: 'flex-end',
   top: '1px',
+  transform: flip ? 'scaleX(-1)' : 'scaleX(1)',
   display: 'flex',
   position: 'relative',
   height: '40px',
@@ -23,7 +24,7 @@ const littleSquare = (justify, align) => Map({
   justifyContent: justify,
   alignItems: align,
   em: {
-    background: palatte.secondary,
+    background: 'black',
     display: 'flex',
     height: '10px',
     width: '10px'
@@ -74,7 +75,7 @@ export class Squares extends Component {
     })
   }
 
-  squareTemplate = index => {
+  squareTemplate = (index, square, flipArr) => {
     const array = arrayFromNumber(index)
     const slice = sliceArrayFrom(array)
 
@@ -85,7 +86,9 @@ export class Squares extends Component {
       slice0: slice[0] && slice[0].length
     }
 
-    return <StyledDiv key={index} css={bigSquare}>
+    let flip = flipArr.includes(square + 1)
+
+    return <StyledDiv key={square} css={bigSquare(flip)}>
       {
         len.slice3 &&
           <StyledDiv css={littleSquare('flex-start', 'flex-end')}>
@@ -115,14 +118,17 @@ export class Squares extends Component {
 
   generatedSquares = () => {
     const squareArray = arrayFromNumber(this.props.matrix)
+    const originalArray = arrayFromNumber(this.props.matrix)
 
     let slicedArray = squareArray.splice(1, this.props.index)
     let reversedArray = slicedArray.reverse()
   
-    let mutatedSquareArray = reversedArray.concat(squareArray)
+    let mutatedSquareArray = reversedArray.concat(originalArray).slice(0, 17)
 
     return mutatedSquareArray.map((square, index) => {
-      return this.squareTemplate(square)
+      let indiciesToFlip = slicedArray
+
+      return this.squareTemplate(square, index, indiciesToFlip)
     })
   }
 
