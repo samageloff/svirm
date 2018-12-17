@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Map } from 'immutable'
 import StyledDiv from 'common/styled/StyledDiv'
-import Columns from '../components/Columns'
-import { palatte } from '../styles/colors'
+import Column from 'julio/components/Column'
+import { palatte } from 'julio/styles/colors'
 
 let matrix = 17
 let gridSize = 40
@@ -25,7 +25,7 @@ export class JulioLeParc extends Component {
   render = () => {
     return (
       <StyledDiv css={baseStyles}>
-        <Columns matrix={matrix} />
+        <Column matrix={matrix} />
       </StyledDiv>
     )
   }

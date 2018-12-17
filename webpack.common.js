@@ -18,7 +18,8 @@ module.exports = {
       'src': path.resolve(__dirname, 'src/'),
       'common': path.resolve(__dirname, 'src/components/common'),
       'landing': path.resolve(__dirname, 'src/components/landing'),
-      'timer': path.resolve(__dirname, 'src/components/timer')
+      'timer': path.resolve(__dirname, 'src/components/timer'),
+      'julio': path.resolve(__dirname, 'src/components/julio-le-parc'),
     }
   },
   module: {
