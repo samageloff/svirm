@@ -1,6 +1,6 @@
 import { Map } from 'immutable'
 
-const littleSquare = (justify, align) => Map({
+export const littleSquareStyle = (justify, align) => Map({
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'inherit',
