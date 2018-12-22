@@ -17,7 +17,9 @@ module.exports = {
     alias: {
       'src': path.resolve(__dirname, 'src/'),
       'common': path.resolve(__dirname, 'src/components/common'),
-      'timer': path.resolve(__dirname, 'src/components/timer')
+      'landing': path.resolve(__dirname, 'src/components/landing'),
+      'timer': path.resolve(__dirname, 'src/components/timer'),
+      'julio': path.resolve(__dirname, 'src/components/julio-le-parc'),
     }
   },
   module: {
@@ -55,6 +57,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].[hash].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   }
 }

@@ -2,6 +2,7 @@
 
 :global {
   .carousel-container {
+    cursor: -webkit-grab;
     font-family: $custom-font-family;
     list-style: none;
     margin: 0 auto;
@@ -10,6 +11,10 @@
     position: relative;
     width: 100%;
     z-index: 1;
+
+    &:active {
+      cursor: -webkit-grabbing;
+    }
   }
   
   .swiper-wrapper {

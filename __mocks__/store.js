@@ -2,7 +2,7 @@ data: {
   workouts: {
     browse: [
       {
-        title: 'Browse by muscle group',
+        title: 'Collections',
         collection: [
           {
             id: 1,
@@ -55,28 +55,61 @@ data: {
                 title: 'Abs and arms',
                 time: 1020,
                 level: 'Intermediate',
-                equipment: 'No Equipment'
+                equipment: 'No Equipment',
+                routine: []
               },
               {
                 id: 5,
                 title: 'Push & Pull',
                 time: 900,
                 level: 'Beginner',
-                equipment: 'No Equipment'
+                equipment: 'No Equipment',
+                routine: []
               },
               {
                 id: 6,
                 title: 'Boxer Arms',
                 time: 960,
                 level: 'Advanced',
-                equipment: 'No Equipment'
+                equipment: 'No Equipment',
+                routine: []
+              }
+            ]
+          },
+          {
+            id: 3,
+            name: 'TMJ Treatment',
+            list: [
+              {
+                id: 7,
+                title: 'Abs and arms',
+                time: 30,
+                level: 'None',
+                equipment: 'No Equipment',
+                routine: []
+              },
+              {
+                id: 5,
+                title: 'Push & Pull',
+                time: 900,
+                level: 'Beginner',
+                equipment: 'No Equipment',
+                routine: []
+              },
+              {
+                id: 6,
+                title: 'Boxer Arms',
+                time: 960,
+                level: 'Advanced',
+                equipment: 'No Equipment',
+                routine: []
               }
             ]
           }
         ]
       }
     ],
-    exercises: [
+    exercises = [
       {
         1: {
           title: 'High Plank Arm Reaches',
