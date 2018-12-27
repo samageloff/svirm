@@ -1,67 +1,56 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import Immutable from 'immutable'
-import { connect } from 'react-redux'
-import { bool } from 'prop-types'
-import { bindActionCreators } from 'redux'
-import styles from 'common/styles/variables.scss'
 import StyledDiv from 'common/styled/StyledDiv'
+import StyledLi from 'common/styled/StyledLi'
 
-export class Block extends Component {
-  constructor(props) {
-    super(props)
-  }
+const Block  = props => {
 
-  static propTypes = {
-  }
+  const wrapperStyle = () => Immutable.fromJS({
+  })
 
-  shouldComponentUpdate = nextProps => {
-    return false
-  }
-
-  defaultStyle = () => {
-    return {
-      display: 'flex',
-      justifyContent: 'center',
-      transform: 'scale(1)'
-    }
-  }
-
-  wrapperStyle = () => Immutable.fromJS({
-    bottom: '40px',
-    display: 'flex',
-    height: '60px',
-    position: 'absolute',
-    justifyContent: 'center',
-    textAlign: 'center',
-    width: '100%',
-    zIndex: '5',
-    button: {
-      background: styles.color_wrapper,
-      borderRadius: '50%',
-      border: 'none',
-      cursor: 'pointer',
-      height: '60px',
-      width: '60px'
+  const figureStyle = Immutable.fromJS({
+    background: `url(${props.poster})`,
+    backgroundSize: 'cover',
+    backgroundPosition: '50% 50%',
+    position: 'relative',
+    opacity: '1',
+    transition: 'opacity .35s',
+    '&:hover': {
+      opacity: '.8',
+    },
+    '&:after': {
+      content: "''",
+      display: 'block',
+      paddingBottom: '75%'
     }
   })
 
-  render = () => (
-      <StyledDiv css={this.wrapperStyle()}>
-        Block
-      </StyledDiv>
-    )
+  const descriptionStyle = Immutable.fromJS({
+    bottom: '1.5em',
+    background: 'black',
+    color: 'white',
+    left: '1.5em',
+    padding: '1em 2em',
+    position: 'absolute',
+    h2: {
+      lineHeight: '1em',
+      margin: '0 0 4px'
+    }
+  })
+
+  return (
+    <StyledLi css={wrapperStyle()}>
+      <Link to={props.path}>
+        <StyledDiv css={figureStyle}>
+          <StyledDiv css={descriptionStyle}>
+            <h2>{props.author}</h2>
+            <span>{props.title}</span>
+          </StyledDiv>
+        </StyledDiv>
+      </Link>
+    </StyledLi>
+  )
 }
 
-const mapStateToProps = state => {
-  return {
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators({
-    }, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Block)
+export default Block

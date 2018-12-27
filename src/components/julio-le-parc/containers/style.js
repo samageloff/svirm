@@ -1,9 +1,7 @@
 import { Map } from 'immutable'
-import { palatte } from 'julio/styles/colors'
 import { globals } from 'julio/config'
 
 export const baseStyles = Map({
-  background: palatte.gradient,
   display: 'flex',
   flexWrap: 'wrap',
   flexDirection: 'column',
