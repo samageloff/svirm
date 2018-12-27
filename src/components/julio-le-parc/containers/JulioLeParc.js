@@ -1,21 +1,8 @@
 import React, { Component } from 'react'
-import { Map } from 'immutable'
 import StyledDiv from 'common/styled/StyledDiv'
 import Column from 'julio/components/Column'
-import { palatte } from 'julio/styles/colors'
-
-let matrix = 17
-let gridSize = 40
-
-const baseStyles = Map({
-  background: palatte.gradient,
-  display: 'flex',
-  flexWrap: 'wrap',
-  flexDirection: 'column',
-  height: `${matrix * gridSize}px`,
-  margin: '0 auto',
-  width: `${matrix * gridSize}px`
-})
+import { baseStyles } from './style'
+import { globals } from 'julio/config'
 
 export class JulioLeParc extends Component {
   constructor(props) {
@@ -25,7 +12,7 @@ export class JulioLeParc extends Component {
   render = () => {
     return (
       <StyledDiv css={baseStyles}>
-        <Column matrix={matrix} />
+        <Column matrix={globals.matrix} />
       </StyledDiv>
     )
   }

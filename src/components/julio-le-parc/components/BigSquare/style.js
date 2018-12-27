@@ -2,7 +2,6 @@ import { Map } from 'immutable'
 import { palatte } from 'julio/styles/colors'
 
 export const bigSquareStyle = flip => Map({
-  opacity: '.85',
   boxShadow: `0 0 0 .5px ${palatte.lines}`,
   flexWrap: 'wrap',
   justifyContent: 'flex-end',

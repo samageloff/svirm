@@ -1,55 +1,34 @@
 import React, { Component } from 'react'
 import Immutable from 'immutable'
-import { connect } from 'react-redux'
-import { bool } from 'prop-types'
-import { bindActionCreators } from 'redux'
-import styles from 'common/styles/variables.scss'
 import StyledDiv from 'common/styled/StyledDiv'
+import StyledUl from 'common/styled/StyledUl'
 
-export class Grid extends Component {
-  constructor(props) {
-    super(props)
-  }
+const Grid = props => {
 
-  static propTypes = {
-  }
-
-  shouldComponentUpdate = nextProps => {
-    return false
-  }
-
-  defaultStyle = () => {
-    return {
-      display: 'flex',
-      justifyContent: 'center',
-      transform: 'scale(1)'
-    }
-  }
-
-  wrapperStyle = () => Immutable.fromJS({
-    display: 'flex',
-    height: '100%',
-    flexDirection: 'column',
+  const wrapperStyle = () => Immutable.fromJS({
+    maxWidth: '1000px',
+    margin: '0 auto',
     width: '100%'
   })
 
-  render = () => (
-      <StyledDiv css={this.wrapperStyle()}>
-        Grid
-      </StyledDiv>
-    )
+  const listStyle = () => Immutable.fromJS({
+    boxSizing: 'border-box',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 2fr))',
+    gridGap: '2em',
+    width: '100%' ,
+    listStyleType: 'none',
+    padding: '0',
+    margin: '0'
+  })
+
+  return (
+    <StyledDiv css={wrapperStyle()}>
+      <StyledUl css={listStyle()}>
+        {props.children}
+      </StyledUl>
+    </StyledDiv>
+  )
 }
 
-const mapStateToProps = state => {
-  return {
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators({
-    }, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Grid)
+export default Grid
