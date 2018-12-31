@@ -5,12 +5,6 @@ import StyledUl from 'common/styled/StyledUl'
 
 const Grid = props => {
 
-  const wrapperStyle = () => Immutable.fromJS({
-    maxWidth: '1000px',
-    margin: '0 auto',
-    width: '100%'
-  })
-
   const listStyle = () => Immutable.fromJS({
     boxSizing: 'border-box',
     display: 'grid',
@@ -23,11 +17,9 @@ const Grid = props => {
   })
 
   return (
-    <StyledDiv css={wrapperStyle()}>
-      <StyledUl css={listStyle()}>
-        {props.children}
-      </StyledUl>
-    </StyledDiv>
+    <StyledUl css={listStyle()}>
+      {props.children}
+    </StyledUl>
   )
 }
 

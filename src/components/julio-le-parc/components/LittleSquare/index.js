@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import StyledDiv from 'common/styled/StyledDiv'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { arrayFromNumber, sliceArrayFrom } from 'julio/helpers'
 
 export class LittleSquare extends Component {
@@ -10,9 +11,20 @@ export class LittleSquare extends Component {
   getLittleSquare = n => {
     const littleSquareArray = arrayFromNumber(n)
 
-    return littleSquareArray.map(index => {
-      return <em key={index} />
-    })
+    return (
+      <TransitionGroup>
+      {
+        littleSquareArray.map(index => {
+          return <CSSTransition
+            key={index}
+            timeout={500}
+            classNames='fade'>
+            <em key={index} />
+          </CSSTransition>
+        })
+      }
+    </TransitionGroup>
+    )
   }
 
   littleSquareTemplate = (index, square, arr) => {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { keyframes } from 'styled-components'
 import Transition from 'react-transition-group/Transition'
-import styles from 'src/styles/variables.scss'
 
 const opacityIn = keyframes`
   from {
@@ -10,14 +9,12 @@ const opacityIn = keyframes`
 
   to {
     opacity: 1;
-    visibility: visible;
   }
 `
 
 const opacityOut = keyframes`
   from {
     opacity: 1;
-    visibility: visible;
   }
 
   to {
@@ -25,7 +22,7 @@ const opacityOut = keyframes`
   }
 `
 
-const timingFunction = styles.transition_timing_function
+const timingFunction = 'cubic-bezier(0.165, 0.840, 0.440, 1.000)'
 
 const OpacityFade = ({ children, duration, defaultStyle, in: inProp }) => {
 
