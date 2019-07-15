@@ -1,9 +1,9 @@
 import React from 'react'
-import { keyframes } from 'styled-components'
+import { keyframes, css } from 'styled-components'
 import Transition from 'react-transition-group/Transition'
 import styles from 'common/styles/variables.scss'
 
-const burstIn = keyframes`
+const burstIn = css`
   0% {
     transform: scale(1);
   }
@@ -13,7 +13,7 @@ const burstIn = keyframes`
   }
 `
 
-const burstOut = keyframes`
+const burstOut = css`
   100% {
     transform: scale(.75);
   }
