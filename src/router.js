@@ -21,6 +21,7 @@ const RouterWrapper = () => (
       <Route exact path='/' render={(props) => <Landing type='landing' />} />
       <Route path='/project/timer' render={(props) => <Project type='timer' />} />
       <Route path='/project/julio-le-parc' render={(props) => <Project type='julio' />} />
+      <Route path='/project/instability' render={(props) => <Project type='instability' />} />
     </StyledDiv>
   </Router>
 )

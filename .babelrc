@@ -2,7 +2,7 @@
   "presets": ["@babel/env", "@babel/react"],
   "plugins": [
     "react-hot-loader/babel",
-    "transform-object-rest-spread",
+    "@babel/plugin-proposal-object-rest-spread",
     "transform-class-properties",
     "transform-export-extensions",
     "@babel/plugin-syntax-dynamic-import"

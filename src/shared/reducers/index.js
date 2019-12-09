@@ -23,6 +23,13 @@ export const defaultSharedState = Immutable.fromJS({
         author: 'Oleg Frolov',
         path: '/project/timer',
         poster: require('assets/posters/timer.png')
+      },
+      {
+        key: 'instability',
+        title: 'Inestabilidad: 1963 - 1964',
+        author: 'Julio Le Parc',
+        path: '/project/instability',
+        poster: require('assets/posters/instability.jpg')
       }
     ]
   }

@@ -55,7 +55,7 @@ export class Clicker extends Component {
 
   render = () => (
       <StyledDiv css={this.wrapperStyle()}>
-        <Burst in={this.props.initialized} duration={parseInt(styles.transition_speed * 1000)} defaultStyle={this.defaultStyle()}>
+        <Burst>
           <button onClick={this.props.actions.timerToggle}></button>
         </Burst>
       </StyledDiv>
