@@ -9,7 +9,7 @@ export const ShapeStyle = styled.div`
   background: linear-gradient(to right, ${palatte.background} 20%, ${palatte.shapes} 0%);
   border-radius: 50%;
   height: 25px;
-  transform: rotate(${props => props.transform});
+  transform: rotate(${props => props.transform}) translatez(0);
   transition: transform .8s ease-in-out;
   width: 25px;
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const palatte = {
-  background: 'rgb(229, 217, 211)',
+  background: 'rgba(229, 217, 211, 0)',
   shapes: 'rgb(14, 14, 16)'
 }
 
@@ -11,4 +11,5 @@ export const Background = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  width: 100%;
 `
