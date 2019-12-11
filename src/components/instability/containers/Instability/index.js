@@ -1,51 +1,74 @@
 import React from 'react'
 import { Background } from 'instability/styles'
 import { Shape } from 'instability/components/Shape'
-import { RowWrapper } from './style.css'
+import { Columns, ColWrapper } from './style.css'
 
-const _transformer = (incrementor, rowIndex) => {
-  let modifiedIncrementor = incrementor
+const gridSize = 8
+const degrees = 45
+
+/**
+ * isAfterSplit
+ * @params arr Array
+ * @params index Number
+ * 
+ * isAfterSplit([1, 2, 3, 4], 3) => true
+ * isAfterSplit([1, 2, 3, 4], 2) => false
+**/
+const isAfterSplit = (arr, index) => (arr.length / 2) + 1 <= index
+
+/**
+ * getRotation
+ * @params num String
+ * 
+ * rotate(12) => '180deg'
+**/
+const getRotation = num => `${degrees * num}deg`
+
+/**
+ * generateArray
+ * @params length Number
+ * @params start Number
+ * 
+ * generateArray(5, 2) => [2, 3, 4, 5, 6]
+**/
+const generateArray = (length, start) => {
+  const arr = Array.from(Array(length), (x, index) => index + start)
   
-  if (incrementor === 2) {
-    modifiedIncrementor = modifiedIncrementor + 1
-  }
-  
-  return `${15 * modifiedIncrementor}deg`
+  return arr
 }
 
-const _generatedArray = new Array(26).fill({})
+// Generate an array
+const gridArray = generateArray(gridSize, 0)
+
+// Initalize counter at -1
+let counter = -1
+
+const getShapes = yAxis => gridArray.map((item, index, array) => {
+  let rotation
+
+  rotation = isAfterSplit(array, index)
+    ? counter = counter - 1
+    : counter = counter + 1
+
+  console.log('yAxis', yAxis, 'index', index, 'rotation', rotation)
+  
+  return <Shape className='shape' key={index} rotate={getRotation(rotation)} />
+})
+
+const generateColumns = () => gridArray.map((index) => {
+  const yAxis = index
+  
+  return <ColWrapper className='col-wrapper' key={index}>
+    {getShapes(yAxis)}
+    </ColWrapper>
+})
 
 export const Instability = props => {  
-  const list = index => {
-    let incrementor = 0
-    let direction = 'up'
-    let rowIndex = index
-
-    return _generatedArray.map((item, index) => {
-      if (index === 0) {
-        incrementor = 0
-      } else {
-        if (incrementor === 13) {
-          direction = 'down'
-        }
-        if (incrementor === 0) direction = 'up'
-        if (direction === 'up') incrementor = incrementor + 1
-        if (direction === 'down') incrementor = incrementor - 1        
-      }
-            
-      return <Shape key={index} transform={_transformer(incrementor, rowIndex)} />
-    })
-  }
-
-  const grid = () => {
-    return _generatedArray.map((item, index) => {
-      return <RowWrapper key={index}>{list(index)}</RowWrapper>
-    })
-  }
-
   return (
-    <Background>
-      {grid()}
+    <Background className='background'>
+      <Columns className='columns' number={gridSize}>
+        {generateColumns()}
+      </Columns>
     </Background>
   )
 }

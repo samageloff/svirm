@@ -3,7 +3,7 @@ import { ShapeWrapper, ShapeStyle } from './style.css'
 
 export const Shape = props => (
   <ShapeWrapper>
-    <ShapeStyle transform={props.transform} />
+    <ShapeStyle rotate={props.rotate} />
   </ShapeWrapper>
 )
 
