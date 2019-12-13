@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
-export const Columns = styled.div`
-  columns: ${props => props.number};
-  width: ${props => props.number * 26}px;
+export const Wrapper = styled.div`
+  display: flex;
+  transform: ${props => props.flip ? 'scale(-1, -1)' : 'scale(1, 1)'}
 `
 
-export const ColWrapper = styled.div`
-
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
 `

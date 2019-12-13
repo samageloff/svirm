@@ -7,9 +7,7 @@ export const palatte = {
 
 export const Background = styled.div`
   background: ${palatte.background};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 0 auto;
-  width: 100%;
 `
