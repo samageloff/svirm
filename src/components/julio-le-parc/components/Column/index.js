@@ -3,7 +3,18 @@ import { number } from 'prop-types'
 import StyledDiv from 'common/styled/StyledDiv'
 import { arrayFromNumber } from 'julio/helpers'
 import BigSquare from 'julio/components/BigSquare'
+import posed from 'react-pose'
 import { columnStyles } from './style'
+
+const SquareWrapper = posed.div({
+  open: {
+    x: '0%',
+    delayChildren: 200,
+    staggerChildren: 50
+  },
+  closed: { x: '-100%', delay: 300 },
+  initialPose: 'closed'
+});
 
 export class Column extends Component {
   constructor(props) {
@@ -18,9 +29,9 @@ export class Column extends Component {
     const columnArray = arrayFromNumber(this.props.matrix)
 
     return columnArray.map((column, index) => {
-      return <StyledDiv key={`grid-${index}`} css={columnStyles}>
+      return <SquareWrapper key={`grid-${index}`} css={columnStyles}>
         <BigSquare matrix={this.props.matrix} index={index} />
-      </StyledDiv>
+      </SquareWrapper>
     })
   }
 
