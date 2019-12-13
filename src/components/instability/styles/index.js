@@ -11,3 +11,10 @@ export const Background = styled.div`
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
 `
+
+export const Sliders = styled.div`
+  position: absolute;
+  padding: 1em;
+  top: 1em;
+  left: 1em;
+`
