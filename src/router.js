@@ -16,12 +16,11 @@ const routerStyles = Map({
 const RouterWrapper = () => (
   <Router>
     <StyledDiv css={routerStyles}>
-      {/* <Nav />
-      <Info /> */}
       <Route exact path='/' render={(props) => <Landing type='landing' />} />
       <Route path='/project/timer' render={(props) => <Project type='timer' />} />
       <Route path='/project/julio-le-parc' render={(props) => <Project type='julio' />} />
       <Route path='/project/instability' render={(props) => <Project type='instability' />} />
+      <Route path='/project/sequences' render={(props) => <Project type='sequences' />} />
     </StyledDiv>
   </Router>
 )

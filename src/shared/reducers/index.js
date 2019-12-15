@@ -30,6 +30,13 @@ export const defaultSharedState = Immutable.fromJS({
         author: 'Julio Le Parc',
         path: '/project/instability',
         poster: require('assets/posters/instability.jpg')
+      },
+      {
+        key: 'sequences',
+        title: 'Secuencias en rotación en blanco y negro, 1959 - 2014',
+        author: 'Julio Le Parc',
+        path: '/project/sequences',
+        poster: require('assets/posters/sequences.jpg')
       }
     ]
   }

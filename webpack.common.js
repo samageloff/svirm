@@ -25,7 +25,8 @@ module.exports = {
       'landing': path.resolve(__dirname, 'src/components/landing'),
       'timer': path.resolve(__dirname, 'src/components/timer'),
       'julio': path.resolve(__dirname, 'src/components/julio-le-parc'),
-      'instability': path.resolve(__dirname, 'src/components/instability')
+      'instability': path.resolve(__dirname, 'src/components/instability'),
+      'sequences': path.resolve(__dirname, 'src/components/sequences')
     }
   },
   module: {
