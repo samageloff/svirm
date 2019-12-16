@@ -1,6 +1,6 @@
 import React from 'react'
 import { Background } from 'sequences/styles'
-import { Shape } from 'instability/components/Shape'
+import { Shape } from 'sequences/components/Shape'
 import { Wrapper, List } from './style.css'
 
 const gridSize = 13

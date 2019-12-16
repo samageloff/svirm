@@ -1,4 +1,3 @@
-import { palatte } from 'instability/styles'
 import styled from 'styled-components'
 
 export const ShapeStyle = styled.div.attrs(props => ({
@@ -6,10 +5,10 @@ export const ShapeStyle = styled.div.attrs(props => ({
     transform: `rotate(${props.rotate}) translatez(0)`
   }
 }))`
-  background: linear-gradient(to right, ${palatte.background} 20%, ${palatte.shapes} 0%);
-  border-radius: 50%;
-  height: 23px;
+  background: #FFF;
+  opacity: .5;
+  height: 65px;
   transition: transform .8s ease-in-out;
-  width: 23px;
+  width: 4px;
   margin: 2px;
 `

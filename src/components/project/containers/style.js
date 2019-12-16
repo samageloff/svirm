@@ -11,15 +11,15 @@ const getProjectCanvas = project => {
   const canvas = {
     julio: canvases.gradient,
     instability: canvases.instability,
-    sequences: canvases.instability,
+    sequences: canvases.sequences,
     general: canvases.general
   }
-  
+    
   return canvas[project]
 }
 
 export const projectStyle = project => Map({
-  background: console.log(project) && getProjectCanvas(project),
+  background: getProjectCanvas(project),
   alignItems: 'center',
   display: 'flex',
   height: '100%',
