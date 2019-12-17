@@ -2,9 +2,9 @@
 
 SVIRM started when I first discovered the works of the Argentina-born artist, Julio Le Parc. 
 
-At the time, I had been focused on taking [Muzli Design Inpspiration](https://medium.muz.li/) static interfaces, and making them "work" using React/Redux. 
+At the time, I had been focused on taking [Muzli Design Inspiration](https://medium.muz.li/) static interfaces, and making them "work" using React/Redux. 
 
-> [Oleg Frolov's](https://dribbble.com/Volorf) "Timer" can be viewed here: https://svirm.herokuapp.com/project/timer
+> Check out [Oleg Frolov's](https://dribbble.com/Volorf) "Timer": https://svirm.herokuapp.com/project/timer
 
 When I realized the amazing puzzle-like challenges that the Le Parc paintings posed, I was instantly hooked, and endeavored to re-create his works, using my current favorite tools: React, JavaScript and StyledComponents.
 
