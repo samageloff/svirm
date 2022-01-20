@@ -21,10 +21,17 @@ const InstabilityComponent = MyLoadable({
   webpack: () => [require.resolveWeak('src/components/instability/containers/Instability')]
 })
 
+const SequencesComponent = MyLoadable({
+  loader: () => import('src/components/sequences/containers/Sequences'),
+  modules: ['src/components/sequences/containers/Sequences'],
+  webpack: () => [require.resolveWeak('src/components/sequences/containers/Sequences')]
+})
+
 const components = {
   timer: TimerComponent,
   julio: JulioComponent,
-  instability: InstabilityComponent
+  instability: InstabilityComponent,
+  sequences: SequencesComponent
 }
 
 export class Project extends Component {

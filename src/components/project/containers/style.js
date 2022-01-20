@@ -1,8 +1,25 @@
 import { Map } from 'immutable'
-import { palatte } from 'julio/styles/colors'
+
+export const canvases = {
+  julio: 'radial-gradient(rgb(245, 228, 193) 50%,rgb(219, 191, 163))',
+  instability: 'rgb(222, 221, 212)',
+  sequences: 'rgb(21, 21, 21)',
+  general: 'none'
+}
+
+const getProjectCanvas = project => {
+  const canvas = {
+    julio: canvases.gradient,
+    instability: canvases.instability,
+    sequences: canvases.sequences,
+    general: canvases.general
+  }
+    
+  return canvas[project]
+}
 
 export const projectStyle = project => Map({
-  background: project === 'julio' || project === 'instability' ? palatte.gradient : 'none',
+  background: getProjectCanvas(project),
   alignItems: 'center',
   display: 'flex',
   height: '100%',
