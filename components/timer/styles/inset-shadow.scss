@@ -1,0 +1,22 @@
+@import '../../common/styles/variables';
+
+.inset-shadow-base {
+  content: ' ';
+  height: 160px;
+  position: absolute;
+  width: 90px;
+  transition: opacity .35s ease;
+  z-index: $z-index-insetShadow;
+}
+
+.inset-shadow-left {  
+  composes: inset-shadow-base;
+  background-image: linear-gradient(to left, rgba($color-viewport, 0.001), $color-viewport);
+  left: 0;
+}
+
+.inset-shadow-right {
+  composes: inset-shadow-base;  
+  background-image: linear-gradient(to right, rgba($color-viewport, 0.001), $color-viewport);
+  right: 0;
+}

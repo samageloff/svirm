@@ -1,0 +1,15 @@
+@import './normalize';
+@import './variables';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: 1.428571429;
+  overflow: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}

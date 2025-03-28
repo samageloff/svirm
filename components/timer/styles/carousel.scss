@@ -1,0 +1,46 @@
+@import '../../common/styles/variables';
+
+:global {
+  .carousel-container {
+    cursor: -webkit-grab;
+    font-family: $custom-font-family;
+    list-style: none;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    &:active {
+      cursor: -webkit-grabbing;
+    }
+  }
+  
+  .swiper-wrapper {
+    align-items: center;
+    box-sizing: content-box;
+    display: flex;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    font-size: 3.5rem;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    transition: font-size .35s ease;
+    width: 100%;
+
+    &.swiper-slide-active {
+      font-size: 8rem;
+    }
+  }
+}

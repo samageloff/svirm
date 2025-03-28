@@ -1,0 +1,27 @@
+@import '../../common/styles/variables';
+
+.wrapper {
+  align-items: center;
+  background: $color-wrapper;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.viewport {
+  align-items: center;
+  background-color: $color-viewport;
+  box-shadow: 0 4px 60px -10px rgba($color-black, .5);
+  display: flex;
+  height: $size-min-height;
+  position: relative;
+  overflow: hidden;
+  width: $size-min-width;
+  z-index: $z-index-viewport;
+
+  @media (max-width: $size-min-width) {
+    height: 100%;
+    width: 100%;
+  }
+}
