@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Background } from "../Sequences/styles";
+import { Background } from "./styles";
 import { Shape } from "../instability/components/Shape";
 import { Wrapper, List } from "../instability/style.css";
 
