@@ -1,7 +1,7 @@
-import React from 'react'
-import { keyframes } from 'styled-components'
-import Transition from 'react-transition-group/Transition'
-import styles from 'src/styles/variables.scss'
+import React from "react";
+import { keyframes } from "styled-components";
+import Transition from "react-transition-group/Transition";
+import styles from "../variables.scss";
 
 const opacityIn = keyframes`
   from {
@@ -12,7 +12,7 @@ const opacityIn = keyframes`
     opacity: 1;
     visibility: visible;
   }
-`
+`;
 
 const opacityOut = keyframes`
   from {
@@ -23,39 +23,40 @@ const opacityOut = keyframes`
   to {
     opacity: 0;
   }
-`
+`;
 
-const timingFunction = styles.transition_timing_function
+const timingFunction = styles.transition_timing_function;
 
 const OpacityFade = ({ children, duration, defaultStyle, in: inProp }) => {
-
-  const speed = (duration + 50) + 'ms'
+  const speed = duration + 50 + "ms";
 
   const transitionStyles = {
     entering: {
-      animation: `${opacityIn} ${speed} ${timingFunction}`
+      animation: `${opacityIn} ${speed} ${timingFunction}`,
     },
     entered: {
       opacity: 1,
-      visibility: 'visible'
+      visibility: "visible",
     },
     exiting: {
-      animation: `${opacityOut} ${speed} ${timingFunction}`
-    }
-  }
+      animation: `${opacityOut} ${speed} ${timingFunction}`,
+    },
+  };
 
   return (
     <Transition in={inProp} timeout={duration}>
-      {state => (
-        <div style={{
-          ...defaultStyle,
-          ...transitionStyles[state]
-        }}>
+      {(state) => (
+        <div
+          style={{
+            ...defaultStyle,
+            ...transitionStyles[state],
+          }}
+        >
           {children}
         </div>
       )}
     </Transition>
-  )
-}
+  );
+};
 
-export default OpacityFade
+export default OpacityFade;

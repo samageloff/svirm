@@ -16,7 +16,7 @@ const BigSquareWrapper = styled.div<{ flip?: boolean }>`
   width: 40px;
 `;
 
-const LittleSquareWrapper = styled.div<{
+export const LittleSquareWrapper = styled.div<{
   justify?: FlexJustify;
   align?: FlexAlign;
 }>`
@@ -27,7 +27,7 @@ const LittleSquareWrapper = styled.div<{
   align-items: ${(props) => props.align};
 `;
 
-const StyledEm = styled.em`
+export const StyledEm = styled.em`
   background: ${palatte.primary};
   display: flex;
   height: 10px;

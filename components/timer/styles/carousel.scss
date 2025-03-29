@@ -1,4 +1,4 @@
-@import '../../common/styles/variables';
+@import "../../common/styles/variables";
 
 :global {
   .carousel-container {
@@ -16,7 +16,7 @@
       cursor: -webkit-grabbing;
     }
   }
-  
+
   .swiper-wrapper {
     align-items: center;
     box-sizing: content-box;
@@ -27,7 +27,7 @@
     width: 100%;
     z-index: 1;
   }
-  
+
   .swiper-slide {
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@
     height: 100%;
     position: relative;
     transition-property: transform;
-    transition: font-size .35s ease;
+    transition: font-size 0.35s ease;
     width: 100%;
 
     &.swiper-slide-active {

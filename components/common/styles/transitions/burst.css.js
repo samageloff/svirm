@@ -1,7 +1,7 @@
-import React from 'react'
-import { keyframes, css } from 'styled-components'
-import Transition from 'react-transition-group/Transition'
-import styles from 'common/styles/variables.scss'
+import React from "react";
+import { css } from "styled-components";
+import Transition from "react-transition-group/Transition";
+import styles from "../../styles/variables.scss";
 
 const burstIn = css`
   0% {
@@ -11,11 +11,11 @@ const burstIn = css`
   100% {
     transform: scale(0);
   }
-`
+`;
 
 const burstOut = css`
   100% {
-    transform: scale(.75);
+    transform: scale(0.75);
   }
 
   50% {
@@ -25,41 +25,43 @@ const burstOut = css`
   0% {
     transform: scale(1);
   }
-`
+`;
 
-const timingFunction = styles.transition_timing_function
+const timingFunction = styles.transition_timing_function;
 
 const Burst = ({ children, duration, defaultStyle, in: inProp }) => {
-
-  const speed = `${duration + 50}ms`
+  const speed = `${duration + 50}ms`;
 
   const transitionStyles = {
     entering: {
-      animation: `${burstIn} ${speed} ${timingFunction}`
+      animation: `${burstIn} ${speed} ${timingFunction}`,
     },
     entered: {
-      transform: 'scale(0)'
+      transform: "scale(0)",
     },
     exiting: {
-      animation: `${burstOut} ${speed} ${timingFunction}`
+      animation: `${burstOut} ${speed} ${timingFunction}`,
     },
     exited: {
-      transform: 'scale(1)'
-    }
-  }
+      transform: "scale(1)",
+    },
+  };
 
   return (
     <Transition in={inProp} timeout={duration}>
-      {state => (
-        <div style={{
-          ...defaultStyle,
-          ...transitionStyles[state]
-        }} className={state}>
+      {(state) => (
+        <div
+          style={{
+            ...defaultStyle,
+            ...transitionStyles[state],
+          }}
+          className={state}
+        >
           {children}
         </div>
       )}
     </Transition>
-  )
-}
+  );
+};
 
-export default Burst
+export default Burst;

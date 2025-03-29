@@ -1,55 +1,45 @@
 import React from "react";
-import Immutable from "immutable";
-import { useSelector, useDispatch } from "react-redux";
-import { bool } from "prop-types";
-import { timerToggle } from "timer/actions";
-import { initialized, timerStatus } from "timer/selectors";
-import styles from "common/styles/variables.scss";
-import StyledDiv from "common/styled/StyledDiv";
-import Burst from "common/styles/transitions/burst.css";
+import { useDispatch, useSelector } from "react-redux";
+import { timerToggle } from "../../../lib/redux/actions";
+import { initialized, timerStatus } from "../../../lib/redux/selectors";
+import styled from "styled-components";
+import Burst from "../../common/styles/transitions/burst.css";
 
-Clicker.propTypes = {
-  initialized: bool,
-  timerStatus: bool,
-};
+// Example color value, replace with actual value or import from a theme
+const colorWrapper = "#f0f0f0"; // Replace with the actual value from your variables
 
-const defaultStyle = {
-  display: "flex",
-  justifyContent: "center",
-  transform: "scale(1)",
-};
+const Wrapper = styled.div`
+  bottom: 40px;
+  display: flex;
+  height: 60px;
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  z-index: 5;
+`;
 
-const wrapperStyle = Immutable.fromJS({
-  bottom: "40px",
-  display: "flex",
-  height: "60px",
-  position: "absolute",
-  justifyContent: "center",
-  textAlign: "center",
-  width: "100%",
-  zIndex: "5",
-  button: {
-    background: styles.color_wrapper,
-    borderRadius: "50%",
-    border: "none",
-    cursor: "pointer",
-    height: "60px",
-    width: "60px",
-  },
-});
+const StyledButton = styled.button`
+  background: ${colorWrapper};
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+`;
 
-const Clicker = () => {
+function Clicker() {
   const initializedValue = useSelector(initialized);
   const timerStatusValue = useSelector(timerStatus);
   const dispatch = useDispatch();
 
   return (
-    <StyledDiv css={wrapperStyle}>
+    <Wrapper className="clicker">
       <Burst>
-        <button onClick={() => dispatch(timerToggle())}></button>
+        <StyledButton onClick={() => dispatch(timerToggle())}></StyledButton>
       </Burst>
-    </StyledDiv>
+    </Wrapper>
   );
-};
+}
 
 export default Clicker;

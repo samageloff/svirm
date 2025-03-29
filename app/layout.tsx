@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Greenfield App",
+  title: "SVIRM",
   description:
     "A modern web application built with Next.js, Redux, and styled-components",
   generator: "v0.dev",

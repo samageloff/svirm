@@ -1,17 +1,10 @@
 import React from "react";
-import Immutable from "immutable";
 import { useSelector } from "react-redux";
-import { number } from "prop-types";
-import { currentTick } from "timer/selectors";
-import StyledDiv from "common/styled/StyledDiv";
-import Carousel from "timer/components/Carousel";
-import variables from "common/styles/variables.scss";
+import { currentTick } from "../../../lib/redux/selectors";
+import Carousel from "../components/Carousel";
+import variables from "../../common/styles/variables.scss";
 
-Ticker.propTypes = {
-  currentTick: number,
-};
-
-const styles = Immutable.fromJS({
+const styles = {
   alignItems: "center",
   color: variables.color_white,
   display: "flex",
@@ -22,13 +15,13 @@ const styles = Immutable.fromJS({
   justifyContent: "center",
   width: "100%",
   zIndex: variables.zindex_ticker,
-});
+};
 
 const Ticker = () => {
   const currentTickValue = useSelector(currentTick);
 
   return (
-    <StyledDiv css={styles}>
+    <StyledDiv css={styles} className="ticker">
       <Carousel />
     </StyledDiv>
   );

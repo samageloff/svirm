@@ -1,86 +1,79 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Immutable from "immutable";
-import { Swiper } from "swiper/react";
-import { bool, number } from "prop-types";
-import StyledDiv from "common/styled/StyledDiv";
-import { setCurrentTick } from "timer/actions";
-import { currentTick, initialized, slides } from "timer/selectors";
-import shadow from "timer/styles/inset-shadow.scss";
-import variables from "common/styles/variables.scss";
+"use client";
 
-Carousel.propTypes = {
-  currentTick: number,
-  initialized: bool,
-};
+import React, { useEffect } from "react";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import styled from "styled-components";
+import { currentTick, initialized, slides } from "../../../lib/redux/selectors";
+import variables from "../../common/styles/variables.scss";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
+
+const CurrentTickDiv = styled.div`
+  display: ${(props) => (props.initialized ? "block" : "none")};
+  font-family: ${variables.custom_font_family};
+  font-size: 8rem;
+  position: absolute;
+`;
+
+const SwiperContainerDiv = styled.div`
+  opacity: ${(props) => (props.initialized ? "0" : "1")};
+  pointer-events: ${(props) => (props.initialized ? "none" : "all")};
+  transition: opacity 0.35s ease;
+`;
+
+const ShadowDiv = styled.div`
+  opacity: ${(props) => (props.initialized ? "0" : "1")};
+  content: " ";
+  height: 160px;
+  position: absolute;
+  width: 90px;
+  transition: opacity 0.35s ease;
+  z-index: 10;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.001), #000);
+  right: ${(props) => (props.right ? "0" : "none")}
+  left: ${(props) => (props.left ? "0" : "none")}
+`;
 
 const Carousel = () => {
-  const currentTickValue = useSelector(currentTick);
-  const initializedValue = useSelector(initialized);
-  const slidesValue = useSelector(slides);
-  const dispatch = useDispatch();
+  const currentTickValue = useAppSelector(currentTick);
+  const initializedValue = useAppSelector(initialized);
+  const slidesValue = useAppSelector(slides);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const carousel = new Swiper(".carousel-container", {
-      slidesPerView: 3,
-      centeredSlides: true,
-      initialSlide: 2,
-      spaceBetween: 50,
-    });
-
-    carousel.on("slideChange", () =>
-      dispatch(setCurrentTick(carousel.realIndex))
-    );
-
-    return () => {
-      carousel.destroy();
-    };
-  }, [dispatch]);
+    console.log("initializedValue", initializedValue);
+  }, [initializedValue]);
 
   const getSlides = () =>
     slidesValue.map((slide, index) => (
-      <div key={index} className="swiper-slide">
+      <SwiperSlide key={index} className="swiper-slide">
         {slide}
-      </div>
+      </SwiperSlide>
     ));
 
-  const currentTickStyles = Immutable.fromJS({
-    display: initializedValue ? "block" : "none",
-    fontFamily: variables.custom_font_family,
-    fontSize: "8rem",
-    position: "absolute",
-  });
-
-  const swiperContainerStyles = Immutable.fromJS({
-    opacity: initializedValue ? "0" : "1",
-    pointerEvents: initializedValue ? "none" : "all",
-    transition: "opacity .35s ease",
-  });
-
-  const shadowStyles = Immutable.fromJS({
-    opacity: initializedValue ? "0" : "1",
-  });
-
   return [
-    <StyledDiv
-      key={0}
-      css={shadowStyles}
-      className={shadow["inset-shadow-left"]}
-    />,
-    <StyledDiv key={1} css={currentTickStyles}>
+    <ShadowDiv key={0} left={true.toString()} initialized={initializedValue} />,
+    <CurrentTickDiv key={1} initialized={initializedValue}>
       {currentTickValue}
-    </StyledDiv>,
-    <StyledDiv
+    </CurrentTickDiv>,
+    <SwiperContainerDiv
       key={2}
-      css={swiperContainerStyles}
+      initialized={initializedValue}
       className="carousel-container"
     >
-      <div className="swiper-wrapper">{getSlides()}</div>
-    </StyledDiv>,
-    <StyledDiv
+      <Swiper
+        slidesPerView={3}
+        centeredSlides={true}
+        initialSlide={2}
+        spaceBetween={50}
+      >
+        {getSlides()}
+      </Swiper>
+    </SwiperContainerDiv>,
+    <ShadowDiv
       key={3}
-      css={shadowStyles}
-      className={shadow["inset-shadow-right"]}
+      right={true.toString()}
+      initialized={initializedValue}
     />,
   ];
 };
