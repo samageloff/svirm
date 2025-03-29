@@ -89,6 +89,6 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background: radial-gradient(rgb(245, 228, 193) 50%, rgb(219, 191, 163));
   }
 }

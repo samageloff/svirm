@@ -1,11 +1,11 @@
 "use client";
 
-import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks";
+import { useAppSelector, useAppDispatch } from "../lib/redux/hooks";
 import {
   increment,
   decrement,
   selectCount,
-} from "@/lib/redux/slices/counterSlice";
+} from "../lib/redux/slices/counterSlice";
 import styled from "styled-components";
 
 const CounterContainer = styled.div`

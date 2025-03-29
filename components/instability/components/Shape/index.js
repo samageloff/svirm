@@ -1,8 +1,6 @@
-import React from 'react'
-import { ShapeStyle } from './style.css'
+import React from "react";
+import { ShapeStyle } from "./style.css";
 
-export const Shape = props => (
-  <ShapeStyle rotate={props.rotate} />
-)
+export const Shape = (props) => <ShapeStyle rotate={props.rotate} />;
 
-export default Shape
+export default Shape;
