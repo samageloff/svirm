@@ -9,7 +9,6 @@ export const metadata = {
   title: "SVIRM",
   description:
     "A modern web application built with Next.js, Redux, and styled-components",
-  generator: "v0.dev",
 };
 
 export default function RootLayout({

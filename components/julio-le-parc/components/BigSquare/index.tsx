@@ -4,7 +4,7 @@ import { FlexAlign, FlexJustify } from "../LittleSquare/style";
 import { arrayFromNumber, sliceArrayFrom } from "../../helpers";
 import { palatte } from "../../styles/colors";
 
-const BigSquareWrapper = styled.div<{ flip?: boolean }>`
+const BigSquareWrapper = styled.div<{ flip?: string }>`
   box-shadow: 0 0 0 0.5px ${palatte.lines};
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -72,7 +72,7 @@ const BigSquare: React.FC<BigSquareProps> = ({ matrix, index }) => {
       const flip = flipArr.includes(square + 1);
 
       if (len.slice0 === 0) {
-        return <BigSquareWrapper key={square} flip={flip} />;
+        return <BigSquareWrapper key={square} flip={flip.toString()} />;
       }
 
       return (

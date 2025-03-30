@@ -1,17 +1,10 @@
-import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { funProjects } from "../../../lib/projectsConfig";
-
-const getDynamicComponent = (c: string) =>
-  dynamic(() => import(`../../../components/${c}`), {
-    loading: () => <p>Loading...</p>,
-  });
+import { videoProjects } from "../../../lib/projectsConfig";
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = funProjects?.find((p) => p.key === params.slug);
-  const DynamicComponent = getDynamicComponent(project?.key || "");
+  const project = videoProjects?.find((p) => p.key === params.slug);
 
   if (!project) {
     notFound();
@@ -27,7 +20,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         Back to Portfolio
       </Link>
 
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
           <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
@@ -36,22 +29,26 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="prose dark:prose-invert max-w-none mb-4">
             <p>{project.description}</p>
           </div>
-          <div className="grid grid-cols-1 mb-4">
-            <h2 className="text-lg font-bold mb-2">Technologies</h2>
-            <ul className="grid grid-cols-1 gap-1">
-              {project.technologies.map((technology) => (
-                <span
-                  key={technology}
-                  className="text-sm text-gray-600 dark:text-gray-400"
-                >
-                  {technology}
-                </span>
-              ))}
-            </ul>
-          </div>
-          <DynamicComponent />
         </div>
-        <div></div>
+      </div>
+      <div className="grid grid-cols-1 mb-4">
+        <h2 className="text-lg font-bold mb-2">Technologies</h2>
+        <ul className="grid grid-cols-1 gap-1">
+          {project.technologies.map((technology) => (
+            <span
+              key={technology}
+              className="text-sm text-gray-600 dark:text-gray-400"
+            >
+              {technology}
+            </span>
+          ))}
+        </ul>
+      </div>
+      <div className="relative" style={{ paddingTop: "56.25%" }}>
+        <iframe
+          src={project.embed}
+          className="absolute inset-0 w-full h-full"
+        />
       </div>
     </div>
   );

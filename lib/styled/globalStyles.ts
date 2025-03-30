@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components"
-import type { Theme } from "./theme"
+import { createGlobalStyle } from "styled-components";
+import type { Theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
   body {
@@ -25,5 +25,4 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
   button {
     cursor: pointer;
   }
-`
-
+`;

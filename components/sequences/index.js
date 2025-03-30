@@ -75,8 +75,8 @@ export const Sequences = (props) => {
     <Background>
       <Wrapper>{genShapeList(0)}</Wrapper>
       <Wrapper>{genShapeList(6, true)}</Wrapper>
-      <Wrapper flip>{genShapeList(6, true)}</Wrapper>
-      <Wrapper flip>{genShapeList(0)}</Wrapper>
+      <Wrapper flip="true">{genShapeList(6, true)}</Wrapper>
+      <Wrapper flip="true">{genShapeList(0)}</Wrapper>
     </Background>
   );
 };

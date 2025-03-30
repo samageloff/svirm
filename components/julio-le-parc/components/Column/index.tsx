@@ -9,7 +9,7 @@ interface ColumnProps {
   matrix: number;
 }
 
-const SquareWrapper = motion(styled.div(columnStyles));
+const SquareWrapper = styled.div(columnStyles);
 
 const Column: React.FC<ColumnProps> = ({ matrix }) => {
   const generateColumn = React.useCallback(() => {
@@ -17,18 +17,7 @@ const Column: React.FC<ColumnProps> = ({ matrix }) => {
 
     return columnArray.map((column, index) => {
       return (
-        <SquareWrapper
-          className="square-wrapper"
-          key={`grid-${index}`}
-          initial={{ opacity: "0" }}
-          animate={{ opacity: "1" }}
-          transition={{
-            duration: 0.3,
-            delay: index * 0.05,
-            delayChildren: 0.2,
-            staggerChildren: 0.05,
-          }}
-        >
+        <SquareWrapper className="square-wrapper" key={`grid-${index}`}>
           <BigSquare matrix={matrix} index={index} />
         </SquareWrapper>
       );
