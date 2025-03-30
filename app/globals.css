@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: Inter, system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 @layer utilities {
@@ -19,4 +20,12 @@ body {
   body {
     background: linear-gradient(135deg, #333, #000);
   }
+}
+
+body.julio-le-parc {
+  background: linear-gradient(to right, #d3959b, #bfe6ba);
+}
+
+body.instability {
+  background: linear-gradient(to right, #5d4157, #a8caba);
 }
