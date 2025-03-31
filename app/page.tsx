@@ -5,7 +5,7 @@ import ProjectBlock from "@/components/shared/ProjectBlock";
 
 export default function PortfolioGrid() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 md-py-4">
       <h1 className="text-3xl mb-2">Sam Ageloff</h1>
       <h2 className="text-xl mb-8">Selected Portfolio</h2>
 
