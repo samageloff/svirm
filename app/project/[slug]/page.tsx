@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { funProjects } from "../../../lib/projectsConfig";
+import { projects } from "../../../lib/projectsConfig";
 import BodyClass from "@/components/BodyClass";
 
 const getDynamicComponent = (c: string) =>
@@ -11,7 +11,7 @@ const getDynamicComponent = (c: string) =>
   });
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = funProjects?.find((p) => p.key === params.slug);
+  const project = projects?.find((p) => p.key === params.slug);
   const DynamicComponent = getDynamicComponent(project?.key || "");
 
   if (!project) {
@@ -42,16 +42,23 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div className="grid grid-cols-1 mb-4">
               <h2 className="text-lg font-bold mb-2">Technologies</h2>
               <ul className="grid grid-cols-1 gap-1">
-                {project.technologies.map((technology) => (
+                {project.technologies?.map((technology) => (
                   <span key={technology} className="text-sm">
                     {technology}
                   </span>
                 ))}
               </ul>
             </div>
-            <DynamicComponent />
+            {project?.type === "component" && <DynamicComponent />}
+            {project?.type === "video" && (
+              <div className="relative" style={{ paddingTop: "56.25%" }}>
+                <iframe
+                  src={project.embed}
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+            )}
           </div>
-          <div></div>
         </div>
       </div>
     </>

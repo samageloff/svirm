@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Background } from "./styles";
 import { Shape } from "./components/Shape";
 import { Wrapper, List } from "./style.css";
@@ -21,11 +21,17 @@ const getRotation = (num) => `${degrees * num}deg`;
  * @params start Number
  * @params reverse Bool
  **/
-const genShapes = (start, reverse = null) => {
+const genShapes = ({ start, reverse = null, isAnimating }) => {
   const generatedList = genList(start, reverse);
 
   return generatedList.map((rotation, index) => {
-    return <Shape key={index} rotate={getRotation(rotation)} />;
+    return (
+      <Shape
+        key={index}
+        rotate={getRotation(rotation)}
+        isAnimating={isAnimating}
+      />
+    );
   });
 };
 
@@ -58,26 +64,63 @@ const genList = (start, reverse) => {
  * @params start Number
  * @params reverse Bool
  **/
-const genShapeList = (start, reverse) => {
+const genShapeList = ({ start, reverse, isAnimating }) => {
   const list = genList(start, reverse);
 
   return list.map((index) => {
     return (
       <List className="list" key={index}>
-        {genShapes(index)}
+        {genShapes({ start: index, isAnimating })}
       </List>
     );
   });
 };
 
-export const Instability = (props) => {
+export const Instability = () => {
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsAnimating(false);
+    setTimeout(() => setIsAnimating(true), 2000);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsAnimating(true);
+    }, 1000);
+  }, []);
+
   return (
-    <Background>
-      <Wrapper>{genShapeList(0)}</Wrapper>
-      <Wrapper>{genShapeList(6, true)}</Wrapper>
-      <Wrapper flip>{genShapeList(6, true)}</Wrapper>
-      <Wrapper flip>{genShapeList(0)}</Wrapper>
-    </Background>
+    <div>
+      <button
+        type="button"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={handleButtonClick}
+        style={{
+          backgroundColor: "blue",
+          color: "white",
+          padding: "10px 20px",
+          borderRadius: "5px",
+        }}
+      >
+        Re-trigger Animation
+      </button>
+
+      <Background>
+        <Wrapper>
+          {genShapeList({ start: 0, reverse: false, isAnimating })}
+        </Wrapper>
+        <Wrapper>
+          {genShapeList({ start: 6, reverse: true, isAnimating })}
+        </Wrapper>
+        <Wrapper flip={"true"}>
+          {genShapeList({ start: 6, reverse: true, isAnimating })}
+        </Wrapper>
+        <Wrapper flip={"true"}>
+          {genShapeList({ start: 0, reverse: false, isAnimating })}
+        </Wrapper>
+      </Background>
+    </div>
   );
 };
 

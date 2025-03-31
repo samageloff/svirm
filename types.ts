@@ -1,5 +1,7 @@
 export type Project = {
   key: string;
+  type: "video" | "component";
+  category: "work" | "side";
   title: string;
   author: string;
   description: string;

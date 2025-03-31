@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FlexAlign, FlexJustify } from "../LittleSquare/style";
 import { arrayFromNumber, sliceArrayFrom } from "../../helpers";
 import { palatte } from "../../styles/colors";
+import { motion } from "framer-motion";
 
 const BigSquareWrapper = styled.div<{ flip?: string }>`
   box-shadow: 0 0 0 0.5px ${palatte.lines};
@@ -27,12 +28,23 @@ export const LittleSquareWrapper = styled.div<{
   align-items: ${(props) => props.align};
 `;
 
-export const StyledEm = styled.em`
+// Define the styled motion component
+const MotionStyledEm = styled(motion.em)`
   background: ${palatte.primary};
   display: flex;
   height: 10px;
   width: 10px;
 `;
+
+export const StyledEm = () => {
+  return (
+    <MotionStyledEm
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    />
+  );
+};
 
 interface BigSquareProps {
   matrix: number;

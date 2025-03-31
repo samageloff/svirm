@@ -6,9 +6,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "SVIRM",
+  title: "Sam Ageloff - Selected Portfolio",
   description:
-    "A modern web application built with Next.js, Redux, and styled-components",
+    "A collection of selected works from Sam Ageloff, a software engineer and web developer.",
 };
 
 export default function RootLayout({

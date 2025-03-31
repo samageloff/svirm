@@ -39,7 +39,7 @@ export const lightTheme = {
     lg: "0.5rem",
     full: "9999px",
   },
-}
+};
 
 export const darkTheme = {
   ...lightTheme,
@@ -52,7 +52,6 @@ export const darkTheme = {
     muted: "#2d3748",
     border: "#4a5568",
   },
-}
+};
 
-export type Theme = typeof lightTheme
-
+export type Theme = typeof lightTheme;
