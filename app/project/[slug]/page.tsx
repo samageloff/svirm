@@ -13,6 +13,7 @@ const getDynamicComponent = (c: string) =>
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects?.find((p) => p.key === params.slug);
   const DynamicComponent = getDynamicComponent(project?.key || "");
+  let isVideoOpen = false;
 
   if (!project) {
     notFound();
@@ -49,6 +50,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 ))}
               </ul>
             </div>
+            {project?.type === "all" && (
+              <div className="flex flex-col gap-8">
+                <DynamicComponent />
+
+                <div className="relative" style={{ paddingTop: "56.25%" }}>
+                  <iframe
+                    src={project.embed}
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              </div>
+            )}
             {project?.type === "component" && <DynamicComponent />}
             {project?.type === "video" && (
               <div className="relative" style={{ paddingTop: "56.25%" }}>

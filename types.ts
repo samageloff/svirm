@@ -1,6 +1,6 @@
 export type Project = {
   key: string;
-  type: "video" | "component";
+  type: "video" | "component" | "all";
   category: "work" | "side";
   title: string;
   author: string;

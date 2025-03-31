@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styled from "styled-components";
 import { FlexAlign, FlexJustify } from "../LittleSquare/style";

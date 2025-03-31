@@ -56,7 +56,7 @@ export const projects = [
   },
   {
     key: "julio-le-parc",
-    type: "component" as Project["type"],
+    type: "all" as Project["type"],
     category: "side" as Project["category"],
     title: "Séquences quantitatives",
     author: "Julio Le Parc",
@@ -66,6 +66,8 @@ export const projects = [
     technologies: ["React", "Styled Components", "TypeScript"],
     year: "2018",
     path: "/project/julio-le-parc",
+    embed:
+      "https://www.loom.com/embed/b0555b45e5684dbca463946b96d9afb2?sid=887cc5c0-04f4-40ac-a2bd-b615a272a198",
   },
   {
     key: "instability",
