@@ -1,4 +1,7 @@
-# Slight Variations to create Illusions of Rhythmic Movements (SVIRM)
+# Sam Ageloff's Recent Projects
+This repo started off as _just_ a playground for building "sequences" and animated UX, inspired by the artist Julio Le Parc (nicknamed "SVIRM"). It has since transitioned into a basic page outlining my latest project work, including video walk-throughs.
+
+## Slight Variations to create Illusions of Rhythmic Movements (SVIRM)
 
 SVIRM started when I first discovered the works of the Argentina-born artist, Julio Le Parc. 
 
