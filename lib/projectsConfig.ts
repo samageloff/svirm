@@ -152,21 +152,28 @@ export const brands = [
 ];
 
 export const tech = [
-  "React",
-  "Next.js",
-  "Node.js",
-  "TypeScript",
-  "JavaScript",
-  "Redux",
-  "MobX",
-  "Chakra UI",
-  "GraphQL",
-  "Apollo Client",
-  "React Query",
-  "SWR",
-  "Postgres",
-  "DynamoDB",
-  "Python",
-  "CSS",
-  "HTML",
+  {
+    category: "Languages",
+    items: ["TypeScript", "JavaScript", "Python"],
+  },
+  {
+    category: "Frontend",
+    items: ["React", "Next.js", "Svelte/Kit", "Redux", "CSS"],
+  },
+  {
+    category: "Backend & APIs",
+    items: ["Node.js", "GraphQL", "RESTful APIs"],
+  },
+  {
+    category: "Databases",
+    items: ["PostgreSQL", "DynamoDB"],
+  },
+  {
+    category: "Cloud & DevOps (working knowledge)",
+    items: ["AWS", "Vercel", "CI/CD", "Docker"],
+  },
+  {
+    category: "Monitoring & Security",
+    items: ["Datadog", "Auth0"],
+  },
 ];
