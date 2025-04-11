@@ -6,10 +6,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Sam Ageloff - Web Developer",
+  title: "Sam Ageloff - Software Engineer",
   description:
-    "A collection of projects and experiments by Sam Ageloff, a web developer based in Chicago/Oak Park.",
-  keywords: "web development, projects, experiments, Sam Ageloff",
+    "A collection of projects and experiments by Sam Ageloff, a software engineer based in Chicago/Oak Park.",
+  keywords:
+    "web development, software engineering, projects, experiments, Sam Ageloff",
 };
 
 export default function RootLayout({
@@ -27,7 +28,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="A collection of projects and experiments by Sam Ageloff, a web developer based in New York City."
+          content="A collection of projects and experiments by Sam Ageloff, a software engineer based in Chicago/Oak Park."
         />
         <link rel="icon" href="/favicon.ico" />
       </head>
