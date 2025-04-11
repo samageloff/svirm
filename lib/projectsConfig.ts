@@ -111,3 +111,62 @@ export const projects = [
     disabled: true,
   },
 ];
+
+export const brands = [
+  {
+    name: "StockX",
+    logo: "/logos/stockx.png",
+  },
+  {
+    name: "Ambassador",
+    logo: "/logos/ambassador.png",
+  },
+  {
+    name: "Huge",
+    logo: "/logos/huge.png",
+  },
+  {
+    name: "Google",
+    logo: "/logos/google.png",
+  },
+  {
+    name: "HGTV",
+    logo: "/logos/hgtv.png",
+  },
+  {
+    name: "Food Network",
+    logo: "/logos/food_network.png",
+  },
+  {
+    name: "JWT",
+    logo: "/logos/jwt.png",
+  },
+  {
+    name: "Greater Than One",
+    logo: "/logos/greater_than_one.png",
+  },
+  {
+    name: "VoiceZam",
+    logo: "/logos/voicezam.png",
+  },
+];
+
+export const tech = [
+  "React",
+  "Next.js",
+  "Node.js",
+  "TypeScript",
+  "JavaScript",
+  "Redux",
+  "MobX",
+  "Chakra UI",
+  "GraphQL",
+  "Apollo Client",
+  "React Query",
+  "SWR",
+  "Postgres",
+  "DynamoDB",
+  "Python",
+  "CSS",
+  "HTML",
+];

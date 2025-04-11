@@ -13,7 +13,6 @@ const getDynamicComponent = (c: string) =>
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects?.find((p) => p.key === params.slug);
   const DynamicComponent = getDynamicComponent(project?.key || "");
-  let isVideoOpen = false;
 
   if (!project) {
     notFound();

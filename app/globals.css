@@ -7,18 +7,13 @@ body {
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-@layer utilities {
-}
-
-@layer base {
-}
-
 @layer base {
   * {
     @apply border-border;
   }
   body {
     background: linear-gradient(135deg, #333, #000);
+    background-repeat: no-repeat;
   }
 }
 
