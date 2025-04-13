@@ -26,7 +26,7 @@ export default function PortfolioGrid() {
         </a>
       </nav>
       <h1 className="mb-8 text-6xl font-extrabold ">Sam Ageloff</h1>
-      <p className="flex gap-3 md:items-start text-lg font-normal text-gray-500 lg:text-xl">
+      <p className="flex gap-3 md:items-start text-lg font-normal lg:text-xl text-gray-400">
         <span className="text-4xl">👋</span> I'm Sam, and I make websites. I've
         worked for major brands and startups over the past 20 years, as an
         individual contributor, and technical lead.
