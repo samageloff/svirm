@@ -25,10 +25,8 @@ export default function PortfolioGrid() {
           Resume
         </a>
       </nav>
-      <h1 className="mb-8 text-6xl font-extrabold  dark:text-white">
-        Sam Ageloff
-      </h1>
-      <p className="flex gap-3 md:items-start text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+      <h1 className="mb-8 text-6xl font-extrabold ">Sam Ageloff</h1>
+      <p className="flex gap-3 md:items-start text-lg font-normal text-gray-500 lg:text-xl">
         <span className="text-4xl">👋</span> I'm Sam, and I make websites. I've
         worked for major brands and startups over the past 20 years, as an
         individual contributor, and technical lead.
